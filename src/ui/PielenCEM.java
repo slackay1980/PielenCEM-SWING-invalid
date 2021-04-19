@@ -38,6 +38,11 @@ public class PielenCEM {
 	/**
 	 * Launch the application.
 	 */
+	
+	/*
+	 * Opisanie
+	 * 
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
