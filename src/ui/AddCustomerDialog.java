@@ -202,6 +202,8 @@ public class AddCustomerDialog extends JDialog {
 		contentPanel.add(panel);
 		panel.setLayout(null);
 		
+		new ComponentMover(this, panel);
+		
 		JLabel lblCloseDialog = new JLabel("  X  ");
 		lblCloseDialog.addMouseListener(new MouseAdapter() {
 			@Override

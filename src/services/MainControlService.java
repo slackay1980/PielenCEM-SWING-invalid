@@ -25,6 +25,7 @@ public class MainControlService {
             public void mouseClicked(MouseEvent e) {
 
                 AddCustomerDialog addCustomer = new AddCustomerDialog();
+                addCustomer.setModal(true);
                 addCustomer.setVisible(true);
             }
             @Override
