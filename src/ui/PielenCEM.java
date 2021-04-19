@@ -34,6 +34,7 @@ public class PielenCEM {
 	private JPanel contentPanel;
 	private JTable table;
 	private LinkedHashMap<String,Object> controlList = null;
+	private int a;
 
 	/**
 	 * Launch the application.
