@@ -35,6 +35,7 @@ public class PielenCEM {
 	private JTable table;
 	private LinkedHashMap<String,Object> controlList = null;
 	private int a;
+	private boolean loggedIn;
 
 	/**
 	 * Launch the application.
@@ -68,6 +69,16 @@ public class PielenCEM {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
+		LoginDlg loginDlg = new LoginDlg();
+		// loginDlg.setModal(true);
+		// loginDlg.setVisible(true);
+
+		loggedIn = loginDlg.showLoginDlg();
+
+		if (loggedIn==false) System.exit(0);
+
+
 		frame = new JFrame();
 		frame.setUndecorated(true);
 		frame.setBounds(30, 30, 1400, 805);
@@ -170,14 +181,14 @@ public class PielenCEM {
 		 sidePanel.add(lblOrderNew);
 
 		 
-		 JLabel lblOrderChange = new JLabel("- Bestellung ändern");
+		 JLabel lblOrderChange = new JLabel("- Bestellung aendern");
 		 lblOrderChange.setForeground(Color.WHITE);
 		 lblOrderChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		 lblOrderChange.setBounds(23, 149, 251, 30);
 		 sidePanel.add(lblOrderChange);
 
 		 
-		 JLabel lblOrderDelete = new JLabel("- Bestellung löschen");
+		 JLabel lblOrderDelete = new JLabel("- Bestellung loeschen");
 		 lblOrderDelete.setForeground(Color.WHITE);
 		 lblOrderDelete.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		 lblOrderDelete.setBounds(23, 180, 251, 30);
@@ -193,7 +204,7 @@ public class PielenCEM {
 		 lblCustomerNew.setBounds(23, 246, 251, 30);
 		 sidePanel.add(lblCustomerNew);
 		 
-		 JLabel lblCustomerChange = new JLabel("- Kundendaten ändern");
+		 JLabel lblCustomerChange = new JLabel("- Kundendaten aendern");
 		 lblCustomerChange.setForeground(Color.WHITE);
 		 lblCustomerChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		 lblCustomerChange.setBounds(23, 283, 251, 30);
@@ -215,7 +226,7 @@ public class PielenCEM {
 		 lblForwarderNew.setBounds(23, 390, 251, 30);
 		 sidePanel.add(lblForwarderNew);
 		 
-		 JLabel lblForwarderChange = new JLabel("- Speditiondaten ändern");
+		 JLabel lblForwarderChange = new JLabel("- Speditiondaten aendern");
 		 lblForwarderChange.setForeground(Color.WHITE);
 		 lblForwarderChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		 lblForwarderChange.setBounds(23, 427, 251, 30);
@@ -243,4 +254,6 @@ public class PielenCEM {
 
 
 	}
+
+
 }

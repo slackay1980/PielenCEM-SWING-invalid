@@ -26,4 +26,8 @@ public class HibernateUtil {
 		}
 		return factory;
 	}
+
+	public static void sutDown() throws Exception {
+		getSessionFactory().close();
+	}
 }

@@ -6,6 +6,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "USER")
 public class User {
+
+	public enum Role {
+		ADMIN,DISPO,FACTORING,SELLER,VIEWER
+	}
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +30,9 @@ public class User {
 	
 	@Column(name ="USER_PASSWORD")
 	private String password;
+
+	@Enumerated(EnumType.STRING)
+	private Role role;
 
 	public User() {
 		

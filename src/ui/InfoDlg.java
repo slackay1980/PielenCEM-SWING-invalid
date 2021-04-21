@@ -1,3 +1,5 @@
+package ui;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -39,16 +41,8 @@ public class InfoDlg extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		if (isWarning) {
-			textPane.setForeground(Color.red);
-		}else {
-			textPane.setForeground(Color.green);
-		}
-		StyledDocument doc = textPane.getStyledDocument();
-		
-		SimpleAttributeSet center = new SimpleAttributeSet();
-		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
-		doc.setParagraphAttributes(0, doc.getLength(), center, false);
+
+
 		
 		
 		JPanel panel = new JPanel();
@@ -102,11 +96,21 @@ public class InfoDlg extends JDialog {
 		panel_1.add(lblAnmelden);
 		
 		textPane = new JTextPane();
+		StyledDocument doc = textPane.getStyledDocument();
+		SimpleAttributeSet center = new SimpleAttributeSet();
+		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+		doc.setParagraphAttributes(0, doc.getLength(), center, false);
 		textPane.setText(infoString);
 		textPane.setForeground(new Color(255, 255, 255));
 		textPane.setBackground(new Color(112, 128, 144));
 		textPane.setBounds(55, 85, 376, 177);
 		panel_1.add(textPane);
+
+		if (isWarning) {
+			textPane.setForeground(Color.red);
+		}else {
+			textPane.setForeground(Color.green);
+		}
 		
 		
 	}
