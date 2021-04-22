@@ -31,6 +31,7 @@ public class User {
 	@Column(name ="USER_PASSWORD")
 	private String password;
 
+	@Column(name ="USER_ROLE")
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
@@ -95,6 +96,14 @@ public class User {
 		this.password = password;
 	}
 	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	
 
 	

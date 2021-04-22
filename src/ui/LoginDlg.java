@@ -59,6 +59,8 @@ public class LoginDlg extends JDialog {
 		{
 			System.out.println(users.get(i).getLogin());
 			System.out.println(users.get(i).getPassword());
+			System.out.println(users.get(i).getRole());
+			System.out.println(users.get(i).getRole().toString());
 			if ((login.equals(users.get(i).getLogin())) && (password.equals(users.get(i).getPassword())))
 			{
 				user = new User();
@@ -144,7 +146,7 @@ public class LoginDlg extends JDialog {
 		loginTextField.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(140, 105, 229, 12);
+		separator.setBounds(140, 110, 229, 12);
 		panel_1.add(separator);
 		
 		JLabel lblPassword = new JLabel("Password:");
@@ -174,7 +176,7 @@ public class LoginDlg extends JDialog {
 
 
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(140, 185, 229, 12);
+		separator_1.setBounds(140, 190, 229, 12);
 		panel_1.add(separator_1);
 		
 		JLabel lblAnmelden = new JLabel("Anmelden");
@@ -253,6 +255,8 @@ public class LoginDlg extends JDialog {
 			ed.setModal(true);
 			ed.setVisible(true);
 		}
+		
+		new ComponentMover(this, panel);
 		
 		
 	}

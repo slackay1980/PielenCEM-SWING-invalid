@@ -76,8 +76,16 @@ public class PielenCEM {
 
 		loggedIn = loginDlg.showLoginDlg();
 
-		if (loggedIn==false) System.exit(0);
-
+		if (loggedIn==false) {
+			if (util.HibernateUtil.factory!=null) {
+				try {
+					util.HibernateUtil.sutDown();
+				} catch (Exception e1) {
+				}
+			
+			}
+			System.exit(0);
+		}
 
 		frame = new JFrame();
 		frame.setUndecorated(true);
