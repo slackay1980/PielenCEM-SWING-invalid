@@ -83,20 +83,21 @@ public class LoginDlg extends JDialog {
 	 * Create the dialog.
 	 */
 	public LoginDlg() {
-		setUndecorated(true);
+		
 
-
-		setBounds(100, 100, 477, 376);
-
+		// put the Login Window in the middle of the screen.
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-
-		// calculate the new location of the window
 		int w = getSize().width;
 		int h = getSize().height;
-
 		int x = (dim.width - w) / 2;
 		int y = (dim.height - h) / 2;
 		setLocation(x,y);
+		
+		
+		
+		//  prepare all Form-Controllelements
+		setUndecorated(true);
+		setBounds(100, 100, 477, 376);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -109,13 +110,7 @@ public class LoginDlg extends JDialog {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel(" X ");
-		lblNewLabel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispose();
-				System.exit(0);
-			}
-		});
+		
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
 		lblNewLabel.setBounds(425, 6, 35, 44);
@@ -167,34 +162,14 @@ public class LoginDlg extends JDialog {
 		passwordtextField.setBounds(140, 161, 229, 29);
 		panel_1.add(passwordtextField);
 
-		passwordtextField.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode()==KeyEvent.VK_ENTER) checkUserSetAktiv();
-			}
-		});
-
+		
 
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(140, 190, 229, 12);
 		panel_1.add(separator_1);
 		
 		JLabel lblAnmelden = new JLabel("Anmelden");
-		lblAnmelden.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblAnmelden.setForeground(new Color(128,0,0));
-				
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblAnmelden.setForeground(Color.WHITE);
-			}
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				checkUserSetAktiv();
-			}
-		});
+		
 		lblAnmelden.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAnmelden.setForeground(Color.WHITE);
 		lblAnmelden.setFont(new Font("Avenir", Font.BOLD, 20));
@@ -202,6 +177,25 @@ public class LoginDlg extends JDialog {
 		panel_1.add(lblAnmelden);
 		
 		JLabel lblAbbruch = new JLabel("Abbruch");
+		
+		lblAbbruch.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAbbruch.setForeground(Color.WHITE);
+		lblAbbruch.setFont(new Font("Avenir", Font.BOLD, 20));
+		lblAbbruch.setBounds(346, 258, 115, 44);
+		panel_1.add(lblAbbruch);
+		
+		loginInfo = new JLabel("");
+		loginInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		loginInfo.setForeground(Color.WHITE);
+		loginInfo.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
+		loginInfo.setBounds(57, 18, 350, 44);
+		panel_1.add(loginInfo);
+		
+		// set Window Mover
+		new ComponentMover(this, panel);
+		
+		
+		//  set all listener for controll-element.
 		lblAbbruch.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -218,21 +212,41 @@ public class LoginDlg extends JDialog {
 			}
 			
 		});
-		lblAbbruch.setHorizontalAlignment(SwingConstants.LEFT);
-		lblAbbruch.setForeground(Color.WHITE);
-		lblAbbruch.setFont(new Font("Avenir", Font.BOLD, 20));
-		lblAbbruch.setBounds(346, 258, 115, 44);
-		panel_1.add(lblAbbruch);
 		
-		loginInfo = new JLabel("");
-		loginInfo.setHorizontalAlignment(SwingConstants.CENTER);
-		loginInfo.setForeground(Color.WHITE);
-		loginInfo.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
-		loginInfo.setBounds(57, 18, 350, 44);
-		panel_1.add(loginInfo);
+		lblAnmelden.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblAnmelden.setForeground(new Color(128,0,0));
+				
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblAnmelden.setForeground(Color.WHITE);
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				checkUserSetAktiv();
+			}
+		});
+		
+		passwordtextField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode()==KeyEvent.VK_ENTER) checkUserSetAktiv();
+			}
+		});
+		
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				System.exit(0);
+			}
+		});
 
 
 
+		//  retrive all users to check the login and password.
 		try {
 			users = new UserDAO().getAllUsers();
 
@@ -256,11 +270,13 @@ public class LoginDlg extends JDialog {
 			ed.setVisible(true);
 		}
 		
-		new ComponentMover(this, panel);
+		
+
 		
 		
 	}
 
+	
 	private void checkUserSetAktiv() {
 		User user = checkLogin(loginTextField.getText(), passwordtextField.getText(), users);
 		if (user != null) {
