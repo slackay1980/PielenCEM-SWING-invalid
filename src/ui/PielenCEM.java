@@ -76,7 +76,7 @@ public class PielenCEM {
 
 		loggedIn = loginDlg.showLoginDlg();
 
-		if (loggedIn==false) System.exit(0);
+		// if (loggedIn==false) System.exit(0);
 
 
 		frame = new JFrame();

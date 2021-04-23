@@ -71,7 +71,7 @@ public class AddCustomerDialog extends JDialog {
 		newCustomer_CompanyName.setColumns(10);
 		newCustomer_CompanyName.setBorder(BorderFactory.createEmptyBorder());
 		
-		JLabel lblStrae = new JLabel("  Straße *");
+		JLabel lblStrae = new JLabel("  Strasse *");
 		lblStrae.setForeground(new Color(255, 255, 255));
 		lblStrae.setBounds(36, 123, 121, 16);
 		contentPanel.add(lblStrae);
@@ -84,13 +84,14 @@ public class AddCustomerDialog extends JDialog {
 		newCustomer_Street.setBounds(36, 139, 238, 31);
 		contentPanel.add(newCustomer_Street);
 		
-		JLabel lblKrzelDesLandesplz = new JLabel("  Kürzel des Landes-PLZ *");
+		JLabel lblKrzelDesLandesplz = new JLabel("  Kuerzel des Landes-PLZ *");
 		lblKrzelDesLandesplz.setForeground(new Color(255, 255, 255));
 		lblKrzelDesLandesplz.setBounds(36, 193, 166, 16);
 		contentPanel.add(lblKrzelDesLandesplz);
 		
 		newCustomer_LandPostcode = new JTextField();
 		newCustomer_LandPostcode.setBackground(new Color(112, 128, 144));
+		newCustomer_LandPostcode.setForeground(new Color(255, 255, 255));
 		newCustomer_LandPostcode.setColumns(10);
 		newCustomer_LandPostcode.setBounds(36, 219, 238, 26);
 		newCustomer_LandPostcode.setBorder(BorderFactory.createEmptyBorder());
@@ -103,6 +104,7 @@ public class AddCustomerDialog extends JDialog {
 		
 		newCustomer_City = new JTextField();
 		newCustomer_City.setBackground(new Color(112, 128, 144));
+		newCustomer_City.setForeground(new Color(255, 255, 255));
 		newCustomer_City.setColumns(10);
 		newCustomer_City.setBounds(36, 285, 238, 26);
 		newCustomer_City.setBorder(BorderFactory.createEmptyBorder());
@@ -115,12 +117,13 @@ public class AddCustomerDialog extends JDialog {
 		
 		newCustomer_Emploee = new JTextField();
 		newCustomer_Emploee.setBackground(new Color(112, 128, 144));
+		newCustomer_Emploee.setForeground(new Color(255, 255, 255));
 		newCustomer_Emploee.setColumns(10);
 		newCustomer_Emploee.setBounds(36, 355, 238, 31);
 		newCustomer_Emploee.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_Emploee);
 		
-		JLabel lblTelBro = new JLabel("  Tel. Büro");
+		JLabel lblTelBro = new JLabel("  Tel. Buero");
 		lblTelBro.setForeground(new Color(255, 255, 255));
 		lblTelBro.setBounds(421, 57, 121, 16);
 		contentPanel.add(lblTelBro);

@@ -59,6 +59,7 @@ public class LoginDlg extends JDialog {
 		{
 			System.out.println(users.get(i).getLogin());
 			System.out.println(users.get(i).getPassword());
+
 			if ((login.equals(users.get(i).getLogin())) && (password.equals(users.get(i).getPassword())))
 			{
 				user = new User();
@@ -83,7 +84,6 @@ public class LoginDlg extends JDialog {
 	public LoginDlg() {
 		setUndecorated(true);
 
-
 		setBounds(100, 100, 477, 376);
 
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -91,10 +91,10 @@ public class LoginDlg extends JDialog {
 		// calculate the new location of the window
 		int w = getSize().width;
 		int h = getSize().height;
-
 		int x = (dim.width - w) / 2;
 		int y = (dim.height - h) / 2;
 		setLocation(x,y);
+
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -164,7 +164,6 @@ public class LoginDlg extends JDialog {
 		passwordtextField.setBackground(new Color(112, 128, 144));
 		passwordtextField.setBounds(140, 161, 229, 29);
 		panel_1.add(passwordtextField);
-
 		passwordtextField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -237,6 +236,7 @@ public class LoginDlg extends JDialog {
 		}
 		catch (ExceptionInInitializerError e){
 			InfoDlg ed = new InfoDlg(true, "Es ist ein interner Javafehler pasiert. Das Programm wird zugemacht.");
+			e.printStackTrace();
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
 			ed.setVisible(true);
@@ -244,11 +244,13 @@ public class LoginDlg extends JDialog {
 		}
 		catch (HibernateException e) {
 			InfoDlg ed = new InfoDlg(true, "Es ist ein Fehler bei Verbindung zu Datenbank pasiert. Das Programm wird zugemacht.");
+			e.printStackTrace();
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
 			ed.setVisible(true);
 		} catch (Exception e) {
 			InfoDlg ed = new InfoDlg(true, "Es ist ein unbekanter Fehler pasiert. Das Programm wird zugemacht.");
+			e.printStackTrace();
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
 			ed.setVisible(true);
@@ -260,7 +262,7 @@ public class LoginDlg extends JDialog {
 	private void checkUserSetAktiv() {
 		User user = checkLogin(loginTextField.getText(), passwordtextField.getText(), users);
 		if (user != null) {
-
+			System.out.println(user.getRole());
 			mySetText("Hallo ", user);
 			entyties.AktivUser.userId = user.getId();
 			entyties.AktivUser.userLogin = user.getLogin();
