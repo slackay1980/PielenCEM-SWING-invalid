@@ -22,7 +22,7 @@ public class HibernateUtil {
 			config.addAnnotatedClass(entyties.Product.class);
 			config.addAnnotatedClass(entyties.User.class);
 			config.addAnnotatedClass(entyties.Forwarder.class);
-			factory = config.configure().buildSessionFactory();
+			factory = config.configure("/resources/hibernate.cfg.xml").buildSessionFactory();
 		}
 		return factory;
 	}
