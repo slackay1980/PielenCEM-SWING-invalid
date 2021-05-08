@@ -2,29 +2,16 @@ package ui;
 
 import services.MainControlService;
 
-import java.awt.EventQueue;
+import java.awt.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Dimension;
+import javax.swing.*;
 
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 
-
-import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Font;
 import java.util.LinkedHashMap;
-import javax.swing.JSeparator;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.UIManager;
 
 public class PielenCEM {
 
@@ -83,16 +70,7 @@ public class PielenCEM {
 		frame.setUndecorated(true);
 		frame.setBounds(30, 30, 1400, 805);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-
-		topPanel.setBounds(0, 0, 1400, 50);
-		frame.getContentPane().add(topPanel);
-		topPanel.setBackground(new Color(139, 0, 0));
-		topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
-		
-		JLabel lblNewLabel = new JLabel("  X  ");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		frame.getContentPane().setLayout(null); lklmm.ä    IN, 17));
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
