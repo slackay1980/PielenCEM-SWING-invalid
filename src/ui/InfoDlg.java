@@ -82,11 +82,16 @@ public class InfoDlg extends JDialog {
 		lblAnmelden.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				lblAnmelden.setForeground(Color.WHITE);
+				lblAnmelden.setForeground(new Color(128,0,0));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblAnmelden.setForeground(new Color(128,0,0));
+				lblAnmelden.setForeground(Color.WHITE);
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				dispose();
 			}
 		});
 		lblAnmelden.setHorizontalAlignment(SwingConstants.CENTER);

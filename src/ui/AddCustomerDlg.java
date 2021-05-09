@@ -226,7 +226,17 @@ public class AddCustomerDlg extends JDialog {
 		lblSpeichern.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblSpeichern.setBackground(Color.WHITE);
 		lblSpeichern.setBounds(442, 619, 111, 26);
+		lblSpeichern.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblSpeichern.setForeground(new Color(128, 0, 0));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblSpeichern.setForeground(Color.WHITE);
+			}
 
+		});
 		contentPanel.add(lblSpeichern);
 
 		JLabel lblCancel = new JLabel("Abbruch");
@@ -241,7 +251,17 @@ public class AddCustomerDlg extends JDialog {
 		lblCancel.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblCancel.setBackground(Color.WHITE);
 		lblCancel.setBounds(575, 619, 111, 26);
+		lblCancel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblSpeichern.setForeground(new Color(128, 0, 0));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblSpeichern.setForeground(Color.WHITE);
+			}
 
+		});
 		contentPanel.add(lblCancel);
 
 		JSeparator separator_1 = new JSeparator();

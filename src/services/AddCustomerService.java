@@ -46,6 +46,7 @@ public class AddCustomerService {
     private int userIndex;
     private List<User> sellers = null;
     private boolean listButton = true;
+    private boolean saved = false;
 
 
 
@@ -81,10 +82,18 @@ public class AddCustomerService {
 
     private void setListener() {
 
-            lblSpeichern.addMouseListener(new MouseAdapter() {
+        lblSpeichern.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     saveNewCustomer();
+                    if (saved) {
+                        dialog.setVisible(false);
+                        dialog.dispose();
+                        InfoDlg infoDlg = new InfoDlg(false, "Der Kunde " + newCustomer.getCustomerName() +
+                                ", " + newCustomer.getCustomerCity() + " wurde erfolgreich gespeichert.");
+                        infoDlg.setModal(true);
+                        infoDlg.setVisible(true);
+                    }
                 }
 
             });
@@ -200,6 +209,7 @@ public class AddCustomerService {
             CustomerDAO customerDAO = new CustomerDAO();
             try {
                 customerDAO.saveCustomer(newCustomer);
+                saved = true;
             } catch (Exception e) {
                 e.printStackTrace();
                 InfoDlg infoDlg = new InfoDlg(true,"Fehler beim Speichern");
@@ -208,6 +218,7 @@ public class AddCustomerService {
             }
         }
         else {
+            saved = false;
             InfoDlg infoDlg = new InfoDlg(false,"Sie müssen allle Felder ausfühlen");
             infoDlg.setModal(true);
             infoDlg.setVisible(true);
