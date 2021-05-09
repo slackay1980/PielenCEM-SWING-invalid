@@ -1,6 +1,6 @@
 package services;
 
-import ui.AddCustomerDialog;
+import ui.AddCustomerDlg;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,33 +10,38 @@ import java.util.LinkedHashMap;
 
 public class MainControlService {
     private LinkedHashMap controlList;
+    private JLabel lblCustomerNew;
 
     public MainControlService(LinkedHashMap controlList) {
 
         this.controlList = controlList;
+        this.lblCustomerNew =  (JLabel)controlList.get("lblCustomerNew");
         setCustomerNewListener();
 
     }
 
     private void setCustomerNewListener() {
-        JLabel lblCustomerNew =  (JLabel)controlList.get("lblCustomerNew");
-        lblCustomerNew.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
+        if (lblCustomerNew!=null) {
+            lblCustomerNew.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    System.out.println("Clicked");
+                    AddCustomerDlg addCustomer = new AddCustomerDlg();
+                    addCustomer.setModal(true);
+                    addCustomer.setVisible(true);
+                }
 
-                AddCustomerDialog addCustomer = new AddCustomerDialog();
-                addCustomer.setModal(true);
-                addCustomer.setVisible(true);
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                lblCustomerNew.setForeground(Color.CYAN);
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                lblCustomerNew.setForeground(Color.WHITE);
-            }
-        });
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    lblCustomerNew.setForeground(Color.CYAN);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    lblCustomerNew.setForeground(Color.WHITE);
+                }
+            });
+        }
     }
 
 }

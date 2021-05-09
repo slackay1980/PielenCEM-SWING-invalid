@@ -1,5 +1,10 @@
 package services;
 
+import dao.CustomerDAO;
+import entyties.Customer;
+import org.hibernate.HibernateException;
+import ui.AcceptDlg;
+
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -22,6 +27,7 @@ public class AddCustomerService {
     private JLabel lblCloseDialog;
     private  JLabel lblSpeichern;
     private  JLabel lblCancel;
+    private JDialog dialog;
 
 
 
@@ -42,32 +48,65 @@ public class AddCustomerService {
         this.lblCloseDialog = (JLabel) controlList.get(" lblCloseDialog");
         this.lblSpeichern = (JLabel) controlList.get(" lblSpeichern");
         this.lblCancel = (JLabel) controlList.get(" lblCancel");
-
+        this.dialog = (JDialog) controlList.get("dialog");
+        setListener();
 
     }
 
     private void setListener() {
-        lblSpeichern.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-        });
+        if (lblSpeichern!=null) {
+            lblSpeichern.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+            });
 
-        lblCancel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-        });
+            lblCancel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                   AcceptDlg acceptDlg = new AcceptDlg("Wollen Sie wirklich diesen Dialog schiessen ohne es gespeichert zu haben.");
+                    boolean answer = acceptDlg.showDlg();
+                    if (answer) {
+                        dialog.setVisible(false);
+                        dialog.dispose();
+                    }
+                }
+            });
+        }
     }
 
     private boolean checkFieldsIfFilled() {
+        boolean checked = true;
+        if (newCustomer_CompanyName.getText().equals("")) checked = false;
+        if (newCustomer_Street.getText().equals("")) checked = false;
+        if (newCustomer_LandPostcode.getText().equals("")) checked = false;
+        if (newCustomer_City.getText().equals("")) checked = false;
+        if (newCustomer_LogicId.getText().equals("")) checked = false;
 
-
-        return true;
+        return checked;
     }
 
     private void setCustomerFields () {
 
+        if (checkFieldsIfFilled()) {
+            Customer customer = new Customer();
+            customer.setCustomerName(newCustomer_CompanyName.getText());
+            customer.setCustomerStreet(newCustomer_Street.getText());
+            customer.setCustomerLandPostCode(newCustomer_LandPostcode.getText());
+            customer.setCustomerCity(newCustomer_City.getText());
+            customer.setCustomerEmploee(newCustomer_Emploee.getText());
+            customer.setCustomerTelefone1(newCustomer_tel1.getText());
+            customer.setCustomerTelefone2(newCustomer_tel2.getText());
+            customer.setCustomerTelefone3(newCustomer_Fax.getText());
+            customer.setCustomerEmail(newCustomer_Email.getText());
+            customer.setCustomerLogicId(newCustomer_LogicId.getText());
+            customer.setCustomerNote(newCustomer_Note.getText());
+        }
 
+    }
+
+    private void saveNewCustomer(Customer customer)throws HibernateException, Exception {
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.saveCustomer(customer);
     }
 }

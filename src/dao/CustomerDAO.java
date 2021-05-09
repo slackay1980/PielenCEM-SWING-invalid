@@ -9,10 +9,6 @@ import org.hibernate.Transaction;
 import entyties.Customer;
 
 
-
-
-
-
 public class CustomerDAO {
 
 	public CustomerDAO() {
@@ -23,6 +19,7 @@ public class CustomerDAO {
 		Session session = util.HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction=session.beginTransaction();
 		session.save(customer);
+		session.flush();
 		transaction.commit();
 		session.close();
 	}
@@ -30,8 +27,9 @@ public class CustomerDAO {
 	public List<Customer> getCustomersAccordToString(String searchString) throws HibernateException, Exception {
 		
 		Session session = util.HibernateUtil.getSessionFactory().openSession();
+
 		String querry = "FROM Customer as c WHERE c.customerName LIKE : searchString";
-		
+
 		@SuppressWarnings("deprecation")
 		List<Customer> customersLikeString = (List<Customer>) session.createQuery(querry, Customer.class).setString("searchString",searchString).list();
 

@@ -1,5 +1,6 @@
 package ui;
 
+import services.AddCustomerService;
 import services.MainControlService;
 
 import java.awt.*;
@@ -70,7 +71,17 @@ public class PielenCEM {
 		frame.setUndecorated(true);
 		frame.setBounds(30, 30, 1400, 805);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null); lklmm.ä    IN, 17));
+		frame.getContentPane().setLayout(null);
+
+		topPanel.setBounds(0, 0, 1400, 50);
+		frame.getContentPane().add(topPanel);
+		topPanel.setBackground(new Color(139, 0, 0));
+		topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+
+
+		JLabel lblNewLabel = new JLabel("  X  ");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -226,6 +237,8 @@ public class PielenCEM {
 		controlList.put("lblCustomerStationNew",lblCustomerStationNew);
 		controlList.put("lblForwarderNew",lblForwarderNew);
 		controlList.put("lblForwarderChange",lblForwarderChange);
+
+
 
 		new MainControlService(controlList);
 

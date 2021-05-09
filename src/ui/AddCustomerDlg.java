@@ -26,7 +26,7 @@ import java.awt.event.MouseEvent;
 import java.util.LinkedHashMap;
 
 
-public class AddCustomerDialog extends JDialog {
+public class AddCustomerDlg extends JDialog {
 
 
 	private static final long serialVersionUID = 1L;
@@ -41,6 +41,10 @@ public class AddCustomerDialog extends JDialog {
 	private JTextField newCustomer_Fax;
 	private JTextField newCustomer_Email;
 	private JTextField newCustomer_LogicId;
+	private JTextPane newCustomer_Note;
+	private  JLabel lblCloseDialog;
+	private JLabel lblSpeichern;
+	private JLabel lblCancel;
 	private LinkedHashMap<String,Object> controlList = null;
 
 
@@ -48,7 +52,7 @@ public class AddCustomerDialog extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public AddCustomerDialog() {
+	public AddCustomerDlg() {
 		controlList = new LinkedHashMap<String,Object>();
 		setUndecorated(true);
 		setBounds(100, 100, 704, 651);
@@ -193,7 +197,7 @@ public class AddCustomerDialog extends JDialog {
 		lblNewLabel_1.setBounds(36, 451, 61, 16);
 		contentPanel.add(lblNewLabel_1);
 
-		JTextPane newCustomer_Note = new JTextPane();
+		newCustomer_Note = new JTextPane();
 		newCustomer_Note.setForeground(new Color(255, 255, 255));
 		newCustomer_Note.setBackground(new Color(112, 128, 144));
 		newCustomer_Note.setBounds(37, 482, 619, 77);
@@ -207,7 +211,7 @@ public class AddCustomerDialog extends JDialog {
 
 		new ComponentMover(this, panel);
 
-		JLabel lblCloseDialog = new JLabel("  X  ");
+		lblCloseDialog = new JLabel("  X  ");
 		lblCloseDialog.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -226,7 +230,7 @@ public class AddCustomerDialog extends JDialog {
 		separator.setBounds(36, 98, 228, 12);
 		contentPanel.add(separator);
 
-		JLabel lblSpeichern = new JLabel("Speichern");
+		lblSpeichern = new JLabel("Speichern");
 		lblSpeichern.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSpeichern.setForeground(Color.WHITE);
 		lblSpeichern.setFont(new Font("Lucida Grande", Font.BOLD, 16));
@@ -234,7 +238,7 @@ public class AddCustomerDialog extends JDialog {
 		lblSpeichern.setBounds(442, 619, 111, 26);
 		contentPanel.add(lblSpeichern);
 
-		JLabel lblCancel = new JLabel("Abbruch");
+		lblCancel = new JLabel("Abbruch");
 		lblCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -303,6 +307,7 @@ public class AddCustomerDialog extends JDialog {
 		controlList.put("lblCloseDialog",lblCloseDialog);
 		controlList.put("lblSpeichern",lblSpeichern);
 		controlList.put("lblCancel",lblCancel);
+		controlList.put("dialog", this);
 
 		new AddCustomerService(controlList);
 

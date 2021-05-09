@@ -1,6 +1,7 @@
 package entyties;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -31,9 +32,14 @@ public class User {
 	@Column(name ="USER_PASSWORD")
 	private String password;
 
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	private List<Customer> customers;
+
 	@Column(name ="USER_ROLE")
 	@Enumerated(EnumType.STRING)
 	private Role role;
+
+
 
 	public User() {
 		

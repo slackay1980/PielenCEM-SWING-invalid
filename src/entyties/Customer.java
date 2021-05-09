@@ -62,6 +62,10 @@ public class Customer {
     
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
     private List<CustomerStation> customerStations;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="USER_ID")
+	private User user;
   
     public String getCustomerCity() {
         return customerCity;
