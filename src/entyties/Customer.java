@@ -66,8 +66,16 @@ public class Customer {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="USER_ID")
 	private User user;
-  
-    public String getCustomerCity() {
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getCustomerCity() {
         return customerCity;
     }
 

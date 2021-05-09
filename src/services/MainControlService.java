@@ -9,19 +9,20 @@ import java.awt.event.MouseEvent;
 import java.util.LinkedHashMap;
 
 public class MainControlService {
-    private LinkedHashMap controlList;
+   // private LinkedHashMap controlList;
     private JLabel lblCustomerNew;
 
     public MainControlService(LinkedHashMap controlList) {
 
-        this.controlList = controlList;
-        this.lblCustomerNew =  (JLabel)controlList.get("lblCustomerNew");
+        // this.controlList = controlList;
+        this.lblCustomerNew =  (JLabel) controlList.get("lblCustomerNew");
+        System.out.println(lblCustomerNew.getText());
         setCustomerNewListener();
 
     }
 
     private void setCustomerNewListener() {
-        if (lblCustomerNew!=null) {
+
             lblCustomerNew.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -41,7 +42,7 @@ public class MainControlService {
                     lblCustomerNew.setForeground(Color.WHITE);
                 }
             });
-        }
+
     }
 
 }

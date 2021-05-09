@@ -1,18 +1,28 @@
 package services;
 
 import dao.CustomerDAO;
+import dao.UserDAO;
 import entyties.Customer;
+import entyties.User;
 import org.hibernate.HibernateException;
 import ui.AcceptDlg;
+import ui.InfoDlg;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class AddCustomerService {
 
-    private LinkedHashMap<String,Object> controlList;
+    //Varables for save the new Customer
+    private User seller;
+    private Customer newCustomer;
+
+    //Controll Elemente from Form
     private JTextField newCustomer_CompanyName;
     private JTextField newCustomer_Street;
     private JTextField newCustomer_LandPostcode;
@@ -27,13 +37,25 @@ public class AddCustomerService {
     private JLabel lblCloseDialog;
     private  JLabel lblSpeichern;
     private  JLabel lblCancel;
+    private  JLabel lblV;
     private JDialog dialog;
+    private JList sellerList;
+
+
+    //helpers-variables
+    private int userIndex;
+    private List<User> sellers = null;
+    private boolean listButton = true;
+
+
+
+
 
 
 
     public AddCustomerService(LinkedHashMap controlList) {
 
-        this.controlList = controlList;
+
         this.newCustomer_CompanyName = (JTextField) controlList.get("newCustomer_CompanyName");
         this.newCustomer_Street = (JTextField) controlList.get("newCustomer_Street");
         this.newCustomer_LandPostcode = (JTextField) controlList.get("newCustomer_LandPostcode");
@@ -44,35 +66,102 @@ public class AddCustomerService {
         this.newCustomer_Fax = (JTextField) controlList.get("newCustomer_Fax");
         this.newCustomer_Email = (JTextField) controlList.get("newCustomer_Email");
         this.newCustomer_LogicId = (JTextField) controlList.get("newCustomer_LogicId");
-        this.newCustomer_Note = (JTextPane) controlList.get(" newCustomer_Note");
-        this.lblCloseDialog = (JLabel) controlList.get(" lblCloseDialog");
-        this.lblSpeichern = (JLabel) controlList.get(" lblSpeichern");
-        this.lblCancel = (JLabel) controlList.get(" lblCancel");
+        this.newCustomer_Note = (JTextPane) controlList.get("newCustomer_Note");
+        this.lblCloseDialog = (JLabel) controlList.get("lblCloseDialog");
+        this.lblSpeichern = (JLabel) controlList.get("lblSpeichern");
+        this.lblCancel =  (JLabel) controlList.get("lblCancel");
         this.dialog = (JDialog) controlList.get("dialog");
+        this.sellerList = (JList) controlList.get("sellerList");
+        this.lblV = (JLabel) controlList.get("lblV");
+
         setListener();
+
 
     }
 
     private void setListener() {
-        if (lblSpeichern!=null) {
+
             lblSpeichern.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
+                    saveNewCustomer();
                 }
+
             });
 
-            lblCancel.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                   AcceptDlg acceptDlg = new AcceptDlg("Wollen Sie wirklich diesen Dialog schiessen ohne es gespeichert zu haben.");
-                    boolean answer = acceptDlg.showDlg();
-                    if (answer) {
-                        dialog.setVisible(false);
-                        dialog.dispose();
-                    }
+
+        lblCancel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                AcceptDlg acceptDlg = new AcceptDlg("Wollen Sie wirklich das Fenster zumachen ?");
+                boolean answer = acceptDlg.showDlg();
+                if (answer) {
+                    dialog.setVisible(false);
+                    dialog.dispose();
                 }
-            });
-        }
+                else {
+                    dialog.setVisible(true);
+                }
+            }
+        });
+
+        lblV.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (listButton) {
+                    lblV.setText(" X");
+                    listButton = false;
+                    sellerList.setEnabled(true);
+                    jListFillWithSellers();
+                    // Doppelclick abfangen
+                    sellerList.addMouseListener(new MouseAdapter() {
+                        public void mouseClicked(MouseEvent evt) {
+                            boolean firstClick = true;
+                            JList list = (JList)evt.getSource();
+                            if (evt.getClickCount() == 2) {
+                                System.out.println("Clicked auf List");
+                                // Double-click detected
+                                if (firstClick==true) {
+                                    userIndex = sellerList.getSelectedIndex();
+                                    System.out.println(sellers.get(userIndex).getName() + " " + sellers.get(userIndex).getSurname());
+                                    seller = (User) sellers.get(userIndex);
+                                    DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
+                                    defaultListModel.clear();
+                                    defaultListModel.addElement(seller.getName() + " " + seller.getSurname());
+                                    firstClick = false;
+                                }
+                            }
+                        }
+                    });
+                    sellerList.addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyPressed(KeyEvent e) {
+                            if(e.getKeyChar() == KeyEvent.VK_ENTER){
+                                userIndex = sellerList.getSelectedIndex();
+                                System.out.println(sellers.get(userIndex).getName() + " " + sellers.get(userIndex).getSurname());
+                                seller = (User) sellers.get(userIndex);
+                                DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
+                                defaultListModel.clear();
+                                defaultListModel.addElement(seller.getName() + " " + seller.getSurname());
+
+                            }
+                        }
+                    });
+
+
+
+                }
+                else {
+                    lblV.setText(" V");
+                    listButton = true;
+                    DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
+                    defaultListModel.clear();
+                    seller = null;
+                    sellerList.setEnabled(false);
+                }
+
+            }
+        });
     }
 
     private boolean checkFieldsIfFilled() {
@@ -86,10 +175,8 @@ public class AddCustomerService {
         return checked;
     }
 
-    private void setCustomerFields () {
+    private void setCustomerFields (Customer customer) {
 
-        if (checkFieldsIfFilled()) {
-            Customer customer = new Customer();
             customer.setCustomerName(newCustomer_CompanyName.getText());
             customer.setCustomerStreet(newCustomer_Street.getText());
             customer.setCustomerLandPostCode(newCustomer_LandPostcode.getText());
@@ -101,12 +188,53 @@ public class AddCustomerService {
             customer.setCustomerEmail(newCustomer_Email.getText());
             customer.setCustomerLogicId(newCustomer_LogicId.getText());
             customer.setCustomerNote(newCustomer_Note.getText());
-        }
+            customer.setUser(seller);
+
 
     }
 
-    private void saveNewCustomer(Customer customer)throws HibernateException, Exception {
-        CustomerDAO customerDAO = new CustomerDAO();
-        customerDAO.saveCustomer(customer);
+    private void saveNewCustomer(){
+        if (checkFieldsIfFilled()) {
+            newCustomer = new Customer();
+            setCustomerFields(newCustomer);
+            CustomerDAO customerDAO = new CustomerDAO();
+            try {
+                customerDAO.saveCustomer(newCustomer);
+            } catch (Exception e) {
+                e.printStackTrace();
+                InfoDlg infoDlg = new InfoDlg(true,"Fehler beim Speichern");
+                infoDlg.setModal(true);
+                infoDlg.setVisible(true);
+            }
+        }
+        else {
+            InfoDlg infoDlg = new InfoDlg(false,"Sie müssen allle Felder ausfühlen");
+            infoDlg.setModal(true);
+            infoDlg.setVisible(true);
+        }
+    }
+
+    private void jListFillWithSellers() {
+
+        try {
+            sellers = new UserDAO().getAllSeller();
+        }
+        catch (HibernateException e)  {
+          InfoDlg infoDlg = new InfoDlg(true,"Probleme mit Verbindung zum Datenbank");
+          infoDlg.setModal(true);
+          infoDlg.setVisible(true);
+        }
+        catch (Exception e)  {
+            InfoDlg infoDlg = new InfoDlg(true,"Allgemeines Problem");
+            infoDlg.setModal(true);
+            infoDlg.setVisible(true);
+        }
+
+        DefaultListModel model = (DefaultListModel) sellerList.getModel();
+        for (User user : sellers) {
+          model.addElement(user.getName()+" "+user.getSurname());
+        }
+        sellerList.repaint();
+
     }
 }

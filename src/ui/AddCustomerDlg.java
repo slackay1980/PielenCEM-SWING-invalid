@@ -1,26 +1,16 @@
 package ui;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import services.AddCustomerService;
 
 
 import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 import java.awt.SystemColor;
 import java.awt.Color;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedHashMap;
@@ -43,8 +33,8 @@ public class AddCustomerDlg extends JDialog {
 	private JTextField newCustomer_LogicId;
 	private JTextPane newCustomer_Note;
 	private  JLabel lblCloseDialog;
-	private JLabel lblSpeichern;
-	private JLabel lblCancel;
+	// private JLabel lblSpeichern;
+	// private JLabel lblCancel;
 	private LinkedHashMap<String,Object> controlList = null;
 
 
@@ -70,7 +60,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_CompanyName = new JTextField();
 		newCustomer_CompanyName.setForeground(new Color(255, 255, 255));
 		newCustomer_CompanyName.setBackground(new Color(112, 128, 144));
-		newCustomer_CompanyName.setBounds(33, 70, 238, 26);
+		newCustomer_CompanyName.setBounds(36, 73, 238, 26);
 		contentPanel.add(newCustomer_CompanyName);
 		newCustomer_CompanyName.setColumns(10);
 		newCustomer_CompanyName.setBorder(BorderFactory.createEmptyBorder());
@@ -85,7 +75,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_Street.setForeground(new Color(255, 255, 255));
 		newCustomer_Street.setColumns(10);
 		newCustomer_Street.setBorder(BorderFactory.createEmptyBorder());
-		newCustomer_Street.setBounds(36, 139, 238, 31);
+		newCustomer_Street.setBounds(36, 143, 238, 31);
 		contentPanel.add(newCustomer_Street);
 
 		JLabel lblKrzelDesLandesplz = new JLabel("  Kuerzel des Landes-PLZ *");
@@ -97,7 +87,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_LandPostcode.setBackground(new Color(112, 128, 144));
 		newCustomer_LandPostcode.setForeground(new Color(255, 255, 255));
 		newCustomer_LandPostcode.setColumns(10);
-		newCustomer_LandPostcode.setBounds(37, 211, 238, 26);
+		newCustomer_LandPostcode.setBounds(37, 224, 238, 26);
 		newCustomer_LandPostcode.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_LandPostcode);
 
@@ -123,7 +113,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_Emploee.setBackground(new Color(112, 128, 144));
 		newCustomer_Emploee.setForeground(new Color(255, 255, 255));
 		newCustomer_Emploee.setColumns(10);
-		newCustomer_Emploee.setBounds(43, 388, 238, 31);
+		newCustomer_Emploee.setBounds(43, 391, 238, 31);
 		newCustomer_Emploee.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_Emploee);
 
@@ -136,7 +126,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_tel1.setForeground(new Color(255, 255, 255));
 		newCustomer_tel1.setBackground(new Color(112, 128, 144));
 		newCustomer_tel1.setColumns(10);
-		newCustomer_tel1.setBounds(421, 66, 238, 26);
+		newCustomer_tel1.setBounds(421, 74, 238, 26);
 		newCustomer_tel1.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_tel1);
 
@@ -144,7 +134,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_tel2.setForeground(new Color(255, 255, 255));
 		newCustomer_tel2.setBackground(new Color(112, 128, 144));
 		newCustomer_tel2.setColumns(10);
-		newCustomer_tel2.setBounds(421, 147, 238, 26);
+		newCustomer_tel2.setBounds(421, 151, 238, 26);
 		newCustomer_tel2.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_tel2);
 
@@ -162,7 +152,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_Fax.setForeground(new Color(255, 255, 255));
 		newCustomer_Fax.setBackground(new Color(112, 128, 144));
 		newCustomer_Fax.setColumns(10);
-		newCustomer_Fax.setBounds(421, 214, 238, 31);
+		newCustomer_Fax.setBounds(421, 219, 238, 31);
 		newCustomer_Fax.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_Fax);
 
@@ -175,7 +165,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_Email.setForeground(new Color(255, 255, 255));
 		newCustomer_Email.setBackground(new Color(112, 128, 144));
 		newCustomer_Email.setColumns(10);
-		newCustomer_Email.setBounds(421, 295, 238, 26);
+		newCustomer_Email.setBounds(421, 308, 238, 26);
 		newCustomer_Email.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_Email);
 
@@ -188,7 +178,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_LogicId.setForeground(new Color(255, 255, 255));
 		newCustomer_LogicId.setBackground(new Color(112, 128, 144));
 		newCustomer_LogicId.setColumns(10);
-		newCustomer_LogicId.setBounds(417, 382, 238, 26);
+		newCustomer_LogicId.setBounds(417, 393, 238, 26);
 		newCustomer_LogicId.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newCustomer_LogicId);
 
@@ -200,7 +190,7 @@ public class AddCustomerDlg extends JDialog {
 		newCustomer_Note = new JTextPane();
 		newCustomer_Note.setForeground(new Color(255, 255, 255));
 		newCustomer_Note.setBackground(new Color(112, 128, 144));
-		newCustomer_Note.setBounds(37, 482, 619, 77);
+		newCustomer_Note.setBounds(37, 486, 267, 77);
 		contentPanel.add(newCustomer_Note);
 
 		JPanel panel = new JPanel();
@@ -230,15 +220,16 @@ public class AddCustomerDlg extends JDialog {
 		separator.setBounds(36, 98, 228, 12);
 		contentPanel.add(separator);
 
-		lblSpeichern = new JLabel("Speichern");
+		JLabel lblSpeichern = new JLabel("Speichern");
 		lblSpeichern.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSpeichern.setForeground(Color.WHITE);
 		lblSpeichern.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblSpeichern.setBackground(Color.WHITE);
 		lblSpeichern.setBounds(442, 619, 111, 26);
+
 		contentPanel.add(lblSpeichern);
 
-		lblCancel = new JLabel("Abbruch");
+		JLabel lblCancel = new JLabel("Abbruch");
 		lblCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -250,6 +241,7 @@ public class AddCustomerDlg extends JDialog {
 		lblCancel.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblCancel.setBackground(Color.WHITE);
 		lblCancel.setBounds(575, 619, 111, 26);
+
 		contentPanel.add(lblCancel);
 
 		JSeparator separator_1 = new JSeparator();
@@ -261,15 +253,15 @@ public class AddCustomerDlg extends JDialog {
 		contentPanel.add(separator_1_1);
 
 		JSeparator separator_1_1_1 = new JSeparator();
-		separator_1_1_1.setBounds(36, 333, 228, 12);
+		separator_1_1_1.setBounds(36, 330, 228, 12);
 		contentPanel.add(separator_1_1_1);
 
 		JSeparator separator_1_1_1_1 = new JSeparator();
-		separator_1_1_1_1.setBounds(47, 423, 228, 11);
+		separator_1_1_1_1.setBounds(36, 422, 228, 11);
 		contentPanel.add(separator_1_1_1_1);
 
 		JSeparator separator_1_1_1_1_1 = new JSeparator();
-		separator_1_1_1_1_1.setBounds(37, 569, 623, 12);
+		separator_1_1_1_1_1.setBounds(37, 562, 237, 12);
 		contentPanel.add(separator_1_1_1_1_1);
 
 		JSeparator separator_2 = new JSeparator();
@@ -289,10 +281,52 @@ public class AddCustomerDlg extends JDialog {
 		contentPanel.add(separator_1_1_1_2);
 
 		JSeparator separator_1_1_1_1_2 = new JSeparator();
-		separator_1_1_1_1_2.setBounds(418, 418, 228, 12);
+		separator_1_1_1_1_2.setBounds(418, 421, 228, 12);
 		contentPanel.add(separator_1_1_1_1_2);
 
+		JLabel lblZustndigerBetreuer = new JLabel("  Betreuer");
+		lblZustndigerBetreuer.setForeground(Color.WHITE);
+		lblZustndigerBetreuer.setBounds(421, 451, 166, 16);
+		contentPanel.add(lblZustndigerBetreuer);
 
+		JSeparator separator_1_1_1_1_2_1 = new JSeparator();
+		separator_1_1_1_1_2_1.setBounds(418, 562, 228, 12);
+		contentPanel.add(separator_1_1_1_1_2_1);
+
+		JLabel lblV = new JLabel("  V");
+		lblV.setForeground(Color.WHITE);
+		lblV.setBounds(575, 451, 32, 16);
+		lblV.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblV.setForeground(new Color(128, 0, 0));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblV.setForeground(Color.WHITE);
+			}
+
+		});
+		contentPanel.add(lblV);
+
+		JSeparator separator_1_1_1_1_2_2 = new JSeparator();
+		separator_1_1_1_1_2_2.setBounds(575, 470, 24, 12);
+		contentPanel.add(separator_1_1_1_1_2_2);
+
+		DefaultListModel model = new DefaultListModel();
+		JList list = new JList(model);
+		list.setForeground(new Color(255, 255, 255));
+		list.setBackground(new Color(112, 128, 144));
+		list.setBounds(418, 483, 228, 80);
+		list.setBorder(BorderFactory.createEmptyBorder());
+		JScrollPane scrollPane = new JScrollPane(list);
+		scrollPane.setBounds(418, 483, 228, 80);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		list.setEnabled(false);
+		contentPanel.add(scrollPane);
+
+
+		controlList = new LinkedHashMap<String,Object>();
 		controlList.put("newCustomer_CompanyName",newCustomer_CompanyName);
 		controlList.put("newCustomer_Street",newCustomer_Street);
 		controlList.put("newCustomer_LandPostcode",newCustomer_LandPostcode);
@@ -307,13 +341,23 @@ public class AddCustomerDlg extends JDialog {
 		controlList.put("lblCloseDialog",lblCloseDialog);
 		controlList.put("lblSpeichern",lblSpeichern);
 		controlList.put("lblCancel",lblCancel);
+		controlList.put("sellerList",list);
+		controlList.put("lblV",lblV);
 		controlList.put("dialog", this);
+
+		System.out.println("Metka");
+		System.out.println(lblSpeichern );
+		System.out.println(lblCancel);
+
+
+
+
+		System.out.println((JLabel) controlList.get("lblSpeichern"));
+		System.out.println((JLabel) controlList.get("lblCancel"));
 
 		new AddCustomerService(controlList);
 
 
 	}
-
-
 }
 

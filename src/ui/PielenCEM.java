@@ -238,8 +238,8 @@ public class PielenCEM {
 		controlList.put("lblForwarderNew",lblForwarderNew);
 		controlList.put("lblForwarderChange",lblForwarderChange);
 
-
-
+		System.out.println((JFrame)controlList.get("frame"));
+		System.out.println((JLabel)controlList.get("lblOrderNew"));
 		new MainControlService(controlList);
 
 
