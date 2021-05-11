@@ -254,11 +254,11 @@ public class AddCustomerDlg extends JDialog {
 		lblCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				lblSpeichern.setForeground(new Color(128, 0, 0));
+				lblCancel.setForeground(new Color(128, 0, 0));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblSpeichern.setForeground(Color.WHITE);
+				lblCancel.setForeground(Color.WHITE);
 			}
 
 		});
