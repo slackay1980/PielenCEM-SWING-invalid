@@ -1,0 +1,14 @@
+controlList.put("newCustomer_CompanyName",newCustomer_CompanyName);
+		controlList.put("newCustomer_Street",newCustomer_Street);
+		controlList.put("newCustomer_LandPostcode",newCustomer_LandPostcode);
+		controlList.put("newCustomer_City",newCustomer_City);
+		controlList.put("newCustomer_Emploee",newCustomer_Emploee);
+		controlList.put("newCustomer_tel1",newCustomer_tel1);
+		controlList.put("newCustomer_tel2",newCustomer_tel2);
+		controlList.put("newCustomer_Fax",newCustomer_Fax);
+		controlList.put("newCustomer_Email",newCustomer_Email);
+		controlList.put("newCustomer_LogicId",newCustomer_LogicId);
+		controlList.put("newCustomer_Note",newCustomer_Note);
+		controlList.put("lblCloseDialog",lblCloseDialog);
+		controlList.put("lblSpeichern",lblSpeichern);
+		controlList.put("lblCancel",lblCancel);
