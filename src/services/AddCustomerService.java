@@ -47,7 +47,7 @@ public class AddCustomerService {
     private List<User> sellers = null;
     private boolean listButton = true;
     private boolean saved = false;
-
+    boolean userSelected = false;
 
 
 
@@ -90,7 +90,7 @@ public class AddCustomerService {
                         dialog.setVisible(false);
                         dialog.dispose();
                         InfoDlg infoDlg = new InfoDlg(false, "Der Kunde " + newCustomer.getCustomerName() +
-                                ", " + newCustomer.getCustomerCity() + " wurde erfolgreich gespeichert.");
+                                ", " + newCustomer.getCustomerCity() + " wurde erfolgreich gespeichert.",dialog.getLocation());
                         infoDlg.setModal(true);
                         infoDlg.setVisible(true);
                     }
@@ -102,7 +102,8 @@ public class AddCustomerService {
         lblCancel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                AcceptDlg acceptDlg = new AcceptDlg("Wollen Sie wirklich das Fenster zumachen ?");
+
+                AcceptDlg acceptDlg = new AcceptDlg("Wollen Sie wirklich das Fenster zumachen ?",dialog.getLocation());
                 boolean answer = acceptDlg.showDlg();
                 if (answer) {
                     dialog.setVisible(false);
@@ -120,24 +121,29 @@ public class AddCustomerService {
                 if (listButton) {
                     lblV.setText(" X");
                     listButton = false;
+                    userSelected = false;
                     sellerList.setEnabled(true);
                     jListFillWithSellers();
                     // Doppelclick abfangen
                     sellerList.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            boolean firstClick = true;
-                            JList list = (JList)evt.getSource();
-                            if (evt.getClickCount() == 2) {
-                                System.out.println("Clicked auf List");
-                                // Double-click detected
-                                if (firstClick==true) {
-                                    userIndex = sellerList.getSelectedIndex();
-                                    System.out.println(sellers.get(userIndex).getName() + " " + sellers.get(userIndex).getSurname());
-                                    seller = (User) sellers.get(userIndex);
-                                    DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
-                                    defaultListModel.clear();
-                                    defaultListModel.addElement(seller.getName() + " " + seller.getSurname());
-                                    firstClick = false;
+                            if (userSelected == false) {
+                                boolean firstClick = true;
+                                if (evt.getClickCount() == 2) {
+
+                                    // Double-click detected
+                                    if (firstClick == true) {
+                                        userIndex = sellerList.getSelectedIndex();
+
+                                        if (userIndex >= 0) {
+                                            seller = (User) sellers.get(userIndex);
+                                            DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
+                                            defaultListModel.clear();
+                                            defaultListModel.addElement(seller.getName() + " " + seller.getSurname());
+                                            firstClick = false;
+                                            userSelected = true;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -145,14 +151,19 @@ public class AddCustomerService {
                     sellerList.addKeyListener(new KeyAdapter() {
                         @Override
                         public void keyPressed(KeyEvent e) {
-                            if(e.getKeyChar() == KeyEvent.VK_ENTER){
-                                userIndex = sellerList.getSelectedIndex();
-                                System.out.println(sellers.get(userIndex).getName() + " " + sellers.get(userIndex).getSurname());
-                                seller = (User) sellers.get(userIndex);
-                                DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
-                                defaultListModel.clear();
-                                defaultListModel.addElement(seller.getName() + " " + seller.getSurname());
+                            if(e.getKeyChar() == KeyEvent.VK_ENTER) {
 
+                                if (userSelected == false) {
+                                    userIndex = sellerList.getSelectedIndex();
+
+                                    if (userIndex >= 0) {
+                                        seller = (User) sellers.get(userIndex);
+                                        DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
+                                        defaultListModel.clear();
+                                        defaultListModel.addElement(seller.getName() + " " + seller.getSurname());
+                                        userSelected = true;
+                                    }
+                                }
                             }
                         }
                     });
@@ -163,6 +174,7 @@ public class AddCustomerService {
                 else {
                     lblV.setText(" V");
                     listButton = true;
+                    userSelected = true;
                     DefaultListModel defaultListModel = (DefaultListModel) sellerList.getModel();
                     defaultListModel.clear();
                     seller = null;
@@ -212,14 +224,14 @@ public class AddCustomerService {
                 saved = true;
             } catch (Exception e) {
                 e.printStackTrace();
-                InfoDlg infoDlg = new InfoDlg(true,"Fehler beim Speichern");
+                InfoDlg infoDlg = new InfoDlg(true,"Fehler beim Speichern",dialog.getLocation());
                 infoDlg.setModal(true);
                 infoDlg.setVisible(true);
             }
         }
         else {
             saved = false;
-            InfoDlg infoDlg = new InfoDlg(false,"Sie müssen allle Felder ausfühlen");
+            InfoDlg infoDlg = new InfoDlg(false,"Sie müssen allle Felder ausfühlen",dialog.getLocation());
             infoDlg.setModal(true);
             infoDlg.setVisible(true);
         }
@@ -231,12 +243,12 @@ public class AddCustomerService {
             sellers = new UserDAO().getAllSeller();
         }
         catch (HibernateException e)  {
-          InfoDlg infoDlg = new InfoDlg(true,"Probleme mit Verbindung zum Datenbank");
+          InfoDlg infoDlg = new InfoDlg(true,"Probleme mit Verbindung zum Datenbank",dialog.getLocation());
           infoDlg.setModal(true);
           infoDlg.setVisible(true);
         }
         catch (Exception e)  {
-            InfoDlg infoDlg = new InfoDlg(true,"Allgemeines Problem");
+            InfoDlg infoDlg = new InfoDlg(true,"Allgemeines Problem",dialog.getLocation());
             infoDlg.setModal(true);
             infoDlg.setVisible(true);
         }
