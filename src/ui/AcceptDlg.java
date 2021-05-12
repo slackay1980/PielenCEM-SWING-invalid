@@ -1,7 +1,6 @@
 package ui;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.*;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -12,10 +11,8 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
-import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -34,9 +31,12 @@ public class AcceptDlg extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public AcceptDlg(String infoString) {
+	public AcceptDlg(String infoString, Point point) {
 		setUndecorated(true);
-		setBounds(100, 100, 477, 376);
+		int x = point.x;
+		int y = point.y;
+		System.out.println(x+" "+y);
+		setBounds(x+40, y+20, 477, 376);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);

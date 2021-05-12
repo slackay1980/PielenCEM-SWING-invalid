@@ -191,6 +191,17 @@ public class PielenCEM {
 		 lblCustomerNew.setForeground(Color.WHITE);
 		 lblCustomerNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		 lblCustomerNew.setBounds(23, 246, 251, 30);
+			lblCustomerNew.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblCustomerNew.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblCustomerNew.setForeground(Color.WHITE);
+			}
+			});
 		 sidePanel.add(lblCustomerNew);
 		 
 		 JLabel lblCustomerChange = new JLabel("- Kundendaten aendern");

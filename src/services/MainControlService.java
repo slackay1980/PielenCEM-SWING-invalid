@@ -32,15 +32,6 @@ public class MainControlService {
                     addCustomer.setVisible(true);
                 }
 
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    lblCustomerNew.setForeground(Color.CYAN);
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    lblCustomerNew.setForeground(Color.WHITE);
-                }
             });
 
     }

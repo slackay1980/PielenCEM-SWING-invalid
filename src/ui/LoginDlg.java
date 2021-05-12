@@ -235,7 +235,7 @@ public class LoginDlg extends JDialog {
 
 		}
 		catch (ExceptionInInitializerError e){
-			InfoDlg ed = new InfoDlg(true, "Es ist ein interner Javafehler pasiert. Das Programm wird zugemacht.");
+			InfoDlg ed = new InfoDlg(true, "Es ist ein interner Javafehler pasiert. Das Programm wird zugemacht.",getLocation());
 			e.printStackTrace();
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
@@ -243,13 +243,13 @@ public class LoginDlg extends JDialog {
 
 		}
 		catch (HibernateException e) {
-			InfoDlg ed = new InfoDlg(true, "Es ist ein Fehler bei Verbindung zu Datenbank pasiert. Das Programm wird zugemacht.");
+			InfoDlg ed = new InfoDlg(true, "Es ist ein Fehler bei Verbindung zu Datenbank pasiert. Das Programm wird zugemacht.",getLocation());
 			e.printStackTrace();
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
 			ed.setVisible(true);
 		} catch (Exception e) {
-			InfoDlg ed = new InfoDlg(true, "Es ist ein unbekanter Fehler pasiert. Das Programm wird zugemacht.");
+			InfoDlg ed = new InfoDlg(true, "Es ist ein unbekanter Fehler pasiert. Das Programm wird zugemacht.",getLocation());
 			e.printStackTrace();
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
