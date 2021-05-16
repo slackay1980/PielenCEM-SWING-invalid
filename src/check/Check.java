@@ -1,4 +1,4 @@
-package ui;
+package check;
 
 import entyties.User;
 import org.hibernate.Session;
