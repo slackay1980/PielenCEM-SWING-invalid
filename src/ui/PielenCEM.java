@@ -214,6 +214,17 @@ public class PielenCEM {
 		 lblCustomerStationNew.setForeground(Color.WHITE);
 		 lblCustomerStationNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		 lblCustomerStationNew.setBounds(23, 325, 251, 30);
+		 lblCustomerStationNew.addMouseListener(new MouseAdapter() {
+			 @Override
+			 public void mouseEntered(MouseEvent e) {
+				 lblCustomerStationNew.setForeground(new Color(139, 0, 0));
+			 }
+
+			 @Override
+			 public void mouseExited(MouseEvent e) {
+				 lblCustomerStationNew.setForeground(Color.WHITE);
+			 }
+		 });
 		 sidePanel.add(lblCustomerStationNew);
 		 
 		 JSeparator separator_1_1 = new JSeparator();

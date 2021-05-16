@@ -87,7 +87,7 @@ public class AddCustomerStationDlg extends JDialog {
 		contentPanel.add(lblSearch);
 		
 		
-		// setPullDownList();
+		setPullDownList();
 		
 		
 		JLabel lblCompaniname = new JLabel("   Firmenname * ");
