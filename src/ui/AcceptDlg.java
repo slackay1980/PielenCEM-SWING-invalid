@@ -36,7 +36,7 @@ public class AcceptDlg extends JDialog {
 		int x = point.x;
 		int y = point.y;
 		System.out.println(x+" "+y);
-		setBounds(x+40, y+20, 477, 376);
+		setBounds(x+40, y+60, 477, 376);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);

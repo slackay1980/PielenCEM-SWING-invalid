@@ -73,12 +73,15 @@ public class AddCustomerStationService {
 
             });
          */
-            searchCustomer.addFocusListener(new FocusAdapter() {
+            searchCustomer.addKeyListener(new KeyAdapter() {
                 @Override
-                public void focusGained(FocusEvent e) {
-
-                    new PullDownListDlg(searchCustomer);
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode()==10) {
+                        PullDownListDlg pullDown = new PullDownListDlg(searchCustomer);
+                        pullDown.showDialog();
+                    }
                 }
+
             });
             lblSearch.addMouseListener(new MouseAdapter() {
                 @Override

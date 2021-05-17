@@ -80,21 +80,8 @@ public class PullDownListDlg extends JDialog {
 			}
 		});
 		
-		// Bei jedem tippen updatet sich der SuchString
-		textField.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e) {
-				searchString = textField.getText();
-				
-			}
-			// Beim Enter in TextField PullDown aufmachen
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode()==10) {
-					showDialog();
-				}
-			}
-		});
+
+
 		// Falls man auf ESC in der Tabelle druckt schlißt sich der Frame zu.
 		table.addKeyListener(new KeyAdapter() {
 			@Override
@@ -115,7 +102,7 @@ public class PullDownListDlg extends JDialog {
 		CustomerDAO customerDAO = new CustomerDAO();
 		try {
 			System.out.println(searchString);
-			customersLikeString = customerDAO.getCustomersByString(searchString);
+			customersLikeString = customerDAO.getCustomersByString(textField.getText());
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
