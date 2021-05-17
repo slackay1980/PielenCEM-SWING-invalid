@@ -24,7 +24,7 @@ public class CustomerDAO {
 		session.close();
 	}
 	
-	public List<Customer> getCustomersAccordToString(String searchString) throws HibernateException, Exception {
+	public List<Customer> getCustomersByString(String searchString) throws HibernateException, Exception {
 		
 		Session session = util.HibernateUtil.getSessionFactory().openSession();
 

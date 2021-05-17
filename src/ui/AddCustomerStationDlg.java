@@ -1,9 +1,13 @@
 package ui;
 
+import services.AddCustomerStationService;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
@@ -23,7 +27,20 @@ public class AddCustomerStationDlg extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
-
+	private LinkedHashMap<String,Object> listControlls;
+	private JLabel lblCloseDialog;
+	private JTextField searchCustomer;
+	private JLabel lblSearch;
+	private JTextField newStationName;
+	private JTextField newStationStreet;
+	private JTextField newStationLandPostcode;
+	private JTextField newStationCity;
+	private JTextField newStationEmploee;
+	private JTextField newStationTel1;
+	private JTextPane textPaneStationNotiz;
+	private JList listCustomerStations;
+	private JLabel lblAddStation;
+	private JLabel lblCancel;
 	/**
 	 * Create the dialog.
 	 */
@@ -31,7 +48,7 @@ public class AddCustomerStationDlg extends JDialog {
 		setUndecorated(true);
 		setBounds(100, 100, 752, 716);
 		getContentPane().setLayout(null);
-		contentPanel.setBounds(0, 6, 834, 704);
+		contentPanel.setBounds(0, 0, 834, 704);
 		contentPanel.setBackground(new Color(112, 128, 144));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
@@ -39,13 +56,13 @@ public class AddCustomerStationDlg extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(128, 0, 0));
-		panel.setBounds(-1, 1, 751, 38);
+		panel.setBounds(0, 0, 751, 40);
 		contentPanel.add(panel);
 		panel.setLayout(null);
 
 		new ComponentMover(this, panel);
 
-		JLabel lblCloseDialog = new JLabel("  X  ");
+		lblCloseDialog = new JLabel("  X  ");
 		lblCloseDialog.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -67,7 +84,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblNewLabel.setBounds(39, 68, 154, 16);
 		contentPanel.add(lblNewLabel);
 
-		JTextField searchCustomer = new JTextField();
+		searchCustomer = new JTextField();
 		searchCustomer.setForeground(new Color(255, 255, 255));
 		searchCustomer.setBackground(new Color(112, 128, 144));
 		searchCustomer.setBounds(38, 88, 326, 26);
@@ -79,7 +96,7 @@ public class AddCustomerStationDlg extends JDialog {
 		separator.setBounds(38, 121, 326, 12);
 		contentPanel.add(separator);
 		
-		JLabel lblSearch = new JLabel("Suchen");
+		lblSearch = new JLabel("Suchen");
 		lblSearch.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSearch.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		lblSearch.setForeground(Color.WHITE);
@@ -87,7 +104,7 @@ public class AddCustomerStationDlg extends JDialog {
 		contentPanel.add(lblSearch);
 		
 		
-		setPullDownList();
+		// setPullDownList();
 		
 		
 		JLabel lblCompaniname = new JLabel("   Firmenname * ");
@@ -95,7 +112,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblCompaniname.setBounds(22, 320, 121, 16);
 		contentPanel.add(lblCompaniname);
 
-		JTextField newStationName = new JTextField();
+		newStationName = new JTextField();
 		newStationName.setForeground(new Color(255, 255, 255));
 		newStationName.setBackground(new Color(112, 128, 144));
 		newStationName.setBounds(32, 348, 238, 26);
@@ -108,7 +125,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblStrae.setBounds(22, 400, 121, 16);
 		contentPanel.add(lblStrae);
 
-		JTextField newStationStreet = new JTextField();
+		newStationStreet = new JTextField();
 		newStationStreet.setBackground(new Color(112, 128, 144));
 		newStationStreet.setForeground(new Color(255, 255, 255));
 		newStationStreet.setColumns(10);
@@ -121,7 +138,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblKrzelDesLandesplz.setBounds(27, 477, 166, 17);
 		contentPanel.add(lblKrzelDesLandesplz);
 
-		JTextField newStationLandPostcode = new JTextField();
+		newStationLandPostcode = new JTextField();
 		newStationLandPostcode.setBackground(new Color(112, 128, 144));
 		newStationLandPostcode.setForeground(new Color(255, 255, 255));
 		newStationLandPostcode.setColumns(10);
@@ -134,7 +151,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblStadt.setBounds(22, 562, 121, 16);
 		contentPanel.add(lblStadt);
 
-		JTextField newStationCity = new JTextField();
+		newStationCity = new JTextField();
 		newStationCity.setBackground(new Color(112, 128, 144));
 		newStationCity.setForeground(new Color(255, 255, 255));
 		newStationCity.setColumns(10);
@@ -147,7 +164,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblAnsprechpartner.setBounds(401, 320, 121, 16);
 		contentPanel.add(lblAnsprechpartner);
 
-		JTextField newStationEmploee = new JTextField();
+		newStationEmploee = new JTextField();
 		newStationEmploee.setBackground(new Color(112, 128, 144));
 		newStationEmploee.setForeground(new Color(255, 255, 255));
 		newStationEmploee.setColumns(10);
@@ -155,7 +172,7 @@ public class AddCustomerStationDlg extends JDialog {
 		newStationEmploee.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(newStationEmploee);
 
-		JTextField newStationTel1 = new JTextField();
+		newStationTel1 = new JTextField();
 		newStationTel1.setForeground(new Color(255, 255, 255));
 		newStationTel1.setBackground(new Color(112, 128, 144));
 		newStationTel1.setColumns(10);
@@ -201,13 +218,13 @@ public class AddCustomerStationDlg extends JDialog {
 		lblNotiz.setBounds(408, 477, 121, 16);
 		contentPanel.add(lblNotiz);
 		
-		JTextPane textPaneStationNotiz = new JTextPane();
+		textPaneStationNotiz = new JTextPane();
 		textPaneStationNotiz.setForeground(new Color(255, 255, 255));
 		textPaneStationNotiz.setBackground(new Color(112, 128, 144));
 		textPaneStationNotiz.setBounds(409, 506, 251, 116);
 		contentPanel.add(textPaneStationNotiz);
 		
-		JList listCustomerStations = new JList();
+		listCustomerStations = new JList();
 		listCustomerStations.setBackground(new Color(112, 128, 144));
 		listCustomerStations.setForeground(new Color(255, 255, 255));
 		listCustomerStations.setBorder(BorderFactory.createEmptyBorder());
@@ -222,7 +239,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblBereitsAngelegteStationen.setBounds(39, 140, 187, 16);
 		contentPanel.add(lblBereitsAngelegteStationen);
 		
-		JLabel lblAddStation = new JLabel("Neue Station speichern");
+		lblAddStation = new JLabel("Neue Station speichern");
 		lblAddStation.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -239,7 +256,7 @@ public class AddCustomerStationDlg extends JDialog {
 		lblAddStation.setBounds(296, 651, 209, 38);
 		contentPanel.add(lblAddStation);
 		
-		JLabel lblCancel = new JLabel("Abbruch");
+		lblCancel = new JLabel("Abbruch");
 		lblCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -255,8 +272,26 @@ public class AddCustomerStationDlg extends JDialog {
 		lblCancel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		lblCancel.setBounds(517, 651, 209, 38);
 		contentPanel.add(lblCancel);
-		
-		
+
+		listControlls = new LinkedHashMap<String,Object>();
+		listControlls.put("lblCloseDialog",lblCloseDialog);
+		listControlls.put("searchCustomer",searchCustomer);
+		listControlls.put("lblSearch",lblSearch);
+		listControlls.put("newStationName",newStationName);
+		listControlls.put("newStationStreet",newStationStreet);
+		listControlls.put("newStationLandPostcode",newStationLandPostcode);
+		listControlls.put("newStationEmploee",newStationEmploee);
+		listControlls.put("newStationTel1",newStationTel1);
+		listControlls.put("textPaneStationNotiz",textPaneStationNotiz);
+		listControlls.put("listCustomerStations",listCustomerStations);
+		listControlls.put("lblAddStation",lblAddStation);
+		listControlls.put("lblCancel",lblCancel);
+		listControlls.put("contentPanel",contentPanel);
+		listControlls.put("dialog",this);
+
+
+		new AddCustomerStationService(listControlls);
+
 
 		
 		
@@ -281,5 +316,7 @@ public class AddCustomerStationDlg extends JDialog {
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setBounds(18, 134, 326, 139);
 		contentPanel.add(scrollPane);
+
+
 	}
 }
