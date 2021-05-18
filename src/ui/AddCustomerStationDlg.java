@@ -101,12 +101,19 @@ public class AddCustomerStationDlg extends JDialog {
 		lblSearch.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		lblSearch.setForeground(Color.WHITE);
 		lblSearch.setBounds(380, 68, 93, 58);
+		lblSearch.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblSearch.setForeground(new Color(128, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblSearch.setForeground(Color.WHITE);
+			}
+		});
 		contentPanel.add(lblSearch);
-		
-		
-		// setPullDownList();
-		
-		
+
 		JLabel lblCompaniname = new JLabel("   Firmenname * ");
 		lblCompaniname.setForeground(new Color(255, 255, 255));
 		lblCompaniname.setBounds(22, 320, 121, 16);
@@ -240,6 +247,10 @@ public class AddCustomerStationDlg extends JDialog {
 		contentPanel.add(lblBereitsAngelegteStationen);
 		
 		lblAddStation = new JLabel("Neue Station speichern");
+		lblAddStation.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAddStation.setForeground(Color.WHITE);
+		lblAddStation.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		lblAddStation.setBounds(296, 651, 209, 38);
 		lblAddStation.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -250,13 +261,13 @@ public class AddCustomerStationDlg extends JDialog {
 				lblAddStation.setForeground(Color.WHITE);
 			}
 		});
-		lblAddStation.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAddStation.setForeground(Color.WHITE);
-		lblAddStation.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		lblAddStation.setBounds(296, 651, 209, 38);
 		contentPanel.add(lblAddStation);
 		
 		lblCancel = new JLabel("Abbruch");
+		lblCancel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCancel.setForeground(Color.WHITE);
+		lblCancel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		lblCancel.setBounds(517, 651, 209, 38);
 		lblCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -267,10 +278,6 @@ public class AddCustomerStationDlg extends JDialog {
 				lblCancel.setForeground(Color.WHITE);
 			}
 		});
-		lblCancel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCancel.setForeground(Color.WHITE);
-		lblCancel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		lblCancel.setBounds(517, 651, 209, 38);
 		contentPanel.add(lblCancel);
 
 		listControlls = new LinkedHashMap<String,Object>();
@@ -298,25 +305,5 @@ public class AddCustomerStationDlg extends JDialog {
 
 	}
 	
-	private void setPullDownList() {
-		JList list = new JList();
-		list.setForeground(new Color(255, 255, 255));
-		list.setBackground(new Color(112, 128, 144));
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Pfordt SA", "Michel SAS", "Aspach", "Pfordt SA", "Michel SAS", "Aspach", "Pfordt SA", "Michel SAS", "Aspach", "Pfordt SA", "Michel SAS", "Aspach"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		list.setBounds(18, 134, 326, 139);
-		
-		JScrollPane scrollPane = new JScrollPane(list);
-		scrollPane.setBounds(18, 134, 326, 139);
-		contentPanel.add(scrollPane);
 
-
-	}
 }

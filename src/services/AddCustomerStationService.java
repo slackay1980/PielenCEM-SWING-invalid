@@ -1,5 +1,6 @@
 package services;
 
+import entyties.Customer;
 import ui.PullDownListDlg;
 
 import javax.swing.*;
@@ -9,6 +10,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class AddCustomerStationService {
+
+    private Customer customer;
 
     // private LinkedHashMap<String,Object> listControlls;
     private JLabel lblCloseDialog;
@@ -78,7 +81,10 @@ public class AddCustomerStationService {
                 public void keyPressed(KeyEvent e) {
                     if (e.getKeyCode()==10) {
                         PullDownListDlg pullDown = new PullDownListDlg(searchCustomer);
-                        pullDown.showDialog();
+                        customer = pullDown.showDialog();
+                        /* zu löschen */
+                        newStationName.setText(customer.getCustomerName());
+                        newStationStreet.setText(customer.getCustomerStreet());
                     }
                 }
 
@@ -86,19 +92,11 @@ public class AddCustomerStationService {
             lblSearch.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    System.out.println("Clicked");
-                    setPullDownList();
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
+                    PullDownListDlg pullDown = new PullDownListDlg(searchCustomer);
+                    customer = pullDown.showDialog();
 
                 }
 
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
             });
     }
 
@@ -110,36 +108,7 @@ public class AddCustomerStationService {
 
     }
 
-    private void setPullDownList() {
 
-        JDialog pullDownDialog = new JDialog();
-        JPanel panel = new JPanel();
-        panel.setBackground(new Color(112, 128, 144));
-        panel.setBounds(18 , 134, 326, 139);
-        contentPanel.add(panel);
-
-        panel.setLayout(null);
-        JList list = new JList();
-        list.setForeground(new Color(255, 255, 255));
-        list.setBackground(new Color(112, 128, 144));
-        list.setModel(new AbstractListModel() {
-            String[] values = new String[]{"Pfordt SA", "Michel SAS", "Aspach", "Pfordt SA", "Michel SAS", "Aspach", "Pfordt SA", "Michel SAS", "Aspach", "Pfordt SA", "Michel SAS", "Aspach"};
-
-            public int getSize() {
-                return values.length;
-            }
-
-            public Object getElementAt(int index) {
-                return values[index];
-            }
-        });
-        list.setBounds(18, 134, 326, 139);
-
-        JScrollPane scrollPane = new JScrollPane(list);
-        scrollPane.setBounds(18, 134, 326, 139);
-        panel.add(scrollPane);
-
-    }
 
 
 }

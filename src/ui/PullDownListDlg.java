@@ -51,14 +51,12 @@ public class PullDownListDlg extends JDialog {
                };
 		
 		tableModel = new DefaultTableModel(columnNames,1);
-
 		table = new JTable(tableModel);
-		
-		
 		table.getColumnModel().getColumn(0).setPreferredWidth(25);
 		table.getColumnModel().getColumn(1).setPreferredWidth(1000);
 		JScrollPane scrollPane = new JScrollPane(table);
 		getContentPane().add(scrollPane);
+
 		setListeners();
 		
 		
@@ -127,13 +125,19 @@ public class PullDownListDlg extends JDialog {
 		}
 	}
 
-	public int showDialog() {
+	public Customer showDialog() {
 		point = textField.getLocationOnScreen();
 		setBounds((int)point.getX(),(int)point.y+textField.getHeight()+3,textField.getWidth(),257);
 		retriveCustomers();
 		renderTableModel();
 		setModal(true);
+		setAlwaysOnTop(true);
 		setVisible(true);
-		return customerIndex;
+		if (customersLikeString!=null) {
+			return (Customer) customersLikeString.get(customerIndex);
+		}
+		else {
+			return null;
+		}
 	}
 }
