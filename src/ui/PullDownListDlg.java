@@ -50,7 +50,7 @@ public class PullDownListDlg extends JDialog {
                 "Firmenname",
                };
 		
-		tableModel = new DefaultTableModel(columnNames,1);
+		tableModel = new DefaultTableModel(columnNames, 1);
 		table = new JTable(tableModel);
 		table.getColumnModel().getColumn(0).setPreferredWidth(25);
 		table.getColumnModel().getColumn(1).setPreferredWidth(1000);

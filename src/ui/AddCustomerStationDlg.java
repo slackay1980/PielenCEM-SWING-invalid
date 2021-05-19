@@ -287,6 +287,7 @@ public class AddCustomerStationDlg extends JDialog {
 		listControlls.put("newStationName",newStationName);
 		listControlls.put("newStationStreet",newStationStreet);
 		listControlls.put("newStationLandPostcode",newStationLandPostcode);
+		listControlls.put("newStationCity",newStationCity);
 		listControlls.put("newStationEmploee",newStationEmploee);
 		listControlls.put("newStationTel1",newStationTel1);
 		listControlls.put("textPaneStationNotiz",textPaneStationNotiz);
