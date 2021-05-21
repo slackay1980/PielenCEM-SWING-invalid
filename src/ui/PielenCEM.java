@@ -22,7 +22,7 @@ public class PielenCEM {
 	private JPanel contentPanel;
 	private JTable table;
 	private LinkedHashMap<String,Object> controlList = null;
-	private int a;
+	// private int a;
 	private boolean loggedIn;
 
 	/**

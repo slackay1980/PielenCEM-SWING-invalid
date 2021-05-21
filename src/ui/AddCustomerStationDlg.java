@@ -9,19 +9,8 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-import javax.swing.BorderFactory;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
-import javax.swing.JSeparator;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JTextPane;
 
 public class AddCustomerStationDlg extends JDialog {
 
@@ -230,8 +219,9 @@ public class AddCustomerStationDlg extends JDialog {
 		textPaneStationNotiz.setBackground(new Color(112, 128, 144));
 		textPaneStationNotiz.setBounds(409, 506, 251, 116);
 		contentPanel.add(textPaneStationNotiz);
-		
-		listCustomerStations = new JList();
+
+		DefaultListModel model = new DefaultListModel();
+		listCustomerStations = new JList(model);
 		listCustomerStations.setBackground(new Color(112, 128, 144));
 		listCustomerStations.setForeground(new Color(255, 255, 255));
 		listCustomerStations.setBorder(BorderFactory.createEmptyBorder());

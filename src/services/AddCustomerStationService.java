@@ -4,15 +4,17 @@ import dao.CustomerDAO;
 import dao.CustomerStationDAO;
 import entyties.Customer;
 import entyties.CustomerStation;
+import org.jetbrains.annotations.NotNull;
 import ui.AcceptDlg;
 import ui.InfoDlg;
 import ui.PullDownListDlg;
 
 import javax.swing.*;
-import java.awt.*;
+
 import java.awt.event.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class AddCustomerStationService {
 
@@ -38,7 +40,7 @@ public class AddCustomerStationService {
     private JPanel contentPanel;
 
 
-    public AddCustomerStationService(LinkedHashMap listControlls) {
+    public AddCustomerStationService(@NotNull LinkedHashMap listControlls) {
 
         //this.listControlls = new LinkedHashMap<String, Object>();
         this.lblCloseDialog = (JLabel) listControlls.get("lblCloseDialog");
@@ -106,7 +108,6 @@ public class AddCustomerStationService {
                         setPullDownList();
                     }
                 }
-
                 @Override
                 public void keyPressed(KeyEvent e) {
                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -114,31 +115,31 @@ public class AddCustomerStationService {
                         setPullDownList();
                    }
                 }
-
             });
          */
-            searchCustomer.addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    if (e.getKeyCode()==10) {
-                        PullDownListDlg pullDown = new PullDownListDlg(searchCustomer);
-                        customer = pullDown.showDialog();
-                        /* zu löschen */
-                        newStationName.setText(customer.getCustomerName());
-                        newStationStreet.setText(customer.getCustomerStreet());
-                    }
-                }
-
-            });
-            lblSearch.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
+        searchCustomer.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==10) {
                     PullDownListDlg pullDown = new PullDownListDlg(searchCustomer);
                     customer = pullDown.showDialog();
-
+                    /* zu löschen */
+                   if (customer!=null) {
+                       fillListWithCustomerStations();
+                   }
                 }
+            }
 
-            });
+        });
+        lblSearch.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                PullDownListDlg pullDown = new PullDownListDlg(searchCustomer);
+                customer = pullDown.showDialog();
+
+            }
+
+        });
     }
 
     private boolean checkFieldsIfFilled() {
@@ -186,6 +187,19 @@ public class AddCustomerStationService {
 
     }
 
+    private void fillListWithCustomerStations() {
+        searchCustomer.setText(
+                customer.getCustomerName()+", "
+                +customer.getCustomerLandPostCode()+" "
+                + customer.getCustomerCity());
+        DefaultListModel defaultListModel = (DefaultListModel) listCustomerStations.getModel();
+        defaultListModel.clear();
+        List<CustomerStation> customerStations = (List) customer.getCustomerStations();
+        for (CustomerStation station :  customerStations) {
+            defaultListModel.addElement(station.getStationName() + ", " + station.getStationLandPostCode() + " " +
+                    station.getStationCity());
+        }
+    }
 
 
 
