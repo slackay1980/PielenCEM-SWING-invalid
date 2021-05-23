@@ -212,6 +212,7 @@ public class LoginDlg extends JDialog {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
+				System.exit(0);
 			}
 			
 		});
@@ -240,6 +241,7 @@ public class LoginDlg extends JDialog {
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
 			ed.setVisible(true);
+			System.exit(0);
 
 		}
 		catch (HibernateException e) {
@@ -248,12 +250,14 @@ public class LoginDlg extends JDialog {
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
 			ed.setVisible(true);
+			System.exit(0);
 		} catch (Exception e) {
 			InfoDlg ed = new InfoDlg(true, "Es ist ein unbekanter Fehler pasiert. Das Programm wird zugemacht.",getLocation());
 			e.printStackTrace();
 			ed.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			ed.setModal(true);
 			ed.setVisible(true);
+			System.exit(0);
 		}
 		
 		
