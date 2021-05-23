@@ -4,7 +4,7 @@ import dao.CustomerDAO;
 import dao.CustomerStationDAO;
 import entyties.Customer;
 import entyties.CustomerStation;
-import org.jetbrains.annotations.NotNull;
+
 import ui.AcceptDlg;
 import ui.InfoDlg;
 import ui.PullDownListDlg;
@@ -40,7 +40,7 @@ public class AddCustomerStationService {
     private JPanel contentPanel;
 
 
-    public AddCustomerStationService(@NotNull LinkedHashMap listControlls) {
+    public AddCustomerStationService(   LinkedHashMap listControlls) {
 
         //this.listControlls = new LinkedHashMap<String, Object>();
         this.lblCloseDialog = (JLabel) listControlls.get("lblCloseDialog");
@@ -102,8 +102,7 @@ public class AddCustomerStationService {
         /*
             searchCustomer.addKeyListener(new KeyAdapter() {
                 @Override
-                public void keyTyped(KeyEvent e) {
-                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                     if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                         System.out.println("Typed");
                         setPullDownList();
                     }
@@ -150,6 +149,10 @@ public class AddCustomerStationService {
         if (newStationCity.getText().equals("")) checked = false;
         if (customer==null) checked = false;
         return checked;
+    }
+
+    private void renderStations() {
+
     }
 
     private void setCustomerStationsFields() {

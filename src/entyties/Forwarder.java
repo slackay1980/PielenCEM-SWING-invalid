@@ -22,6 +22,11 @@ public class Forwarder {
 	@OneToMany(mappedBy = "forwarder")
     private List<OrderCiment> orderCiment;
 
+
+
+    @OneToMany(mappedBy = "forwarder")
+    private List<Freight> freights;
+
     @Column(name ="FORWARDER_NAME")
     private String forwarderName;
     
@@ -55,7 +60,137 @@ public class Forwarder {
     @Column(name ="FORWARDER_NOTE")
     private String forwarderNote;
 
-    
-    
+    public Forwarder() {
+    }
 
+    public Forwarder(List<OrderCiment> orderCiment, List<Freight> freights, String forwarderName,
+                     String forwarderStreet, String forwarderLandPostCode, String forwarderCity,
+                     String forwarderEmploee, String forwarderTelefone1, String forwarderTelefone2,
+                     String forwarderTelefone3, String forwarderEmail, String forwarderLogicId, String forwarderNote) {
+        this.orderCiment = orderCiment;
+        this.freights = freights;
+        this.forwarderName = forwarderName;
+        this.forwarderStreet = forwarderStreet;
+        this.forwarderLandPostCode = forwarderLandPostCode;
+        this.forwarderCity = forwarderCity;
+        this.forwarderEmploee = forwarderEmploee;
+        this.forwarderTelefone1 = forwarderTelefone1;
+        this.forwarderTelefone2 = forwarderTelefone2;
+        this.forwarderTelefone3 = forwarderTelefone3;
+        this.forwarderEmail = forwarderEmail;
+        this.forwarderLogicId = forwarderLogicId;
+        this.forwarderNote = forwarderNote;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<OrderCiment> getOrderCiment() {
+        return orderCiment;
+    }
+
+    public void setOrderCiment(List<OrderCiment> orderCiment) {
+        this.orderCiment = orderCiment;
+    }
+
+    public List<Freight> getFreights() {
+        return freights;
+    }
+
+    public void setFreights(List<Freight> freights) {
+        this.freights = freights;
+    }
+
+    public String getForwarderName() {
+        return forwarderName;
+    }
+
+    public void setForwarderName(String forwarderName) {
+        this.forwarderName = forwarderName;
+    }
+
+    public String getForwarderStreet() {
+        return forwarderStreet;
+    }
+
+    public void setForwarderStreet(String forwarderStreet) {
+        this.forwarderStreet = forwarderStreet;
+    }
+
+    public String getForwarderLandPostCode() {
+        return forwarderLandPostCode;
+    }
+
+    public void setForwarderLandPostCode(String forwarderLandPostCode) {
+        this.forwarderLandPostCode = forwarderLandPostCode;
+    }
+
+    public String getForwarderCity() {
+        return forwarderCity;
+    }
+
+    public void setForwarderCity(String forwarderCity) {
+        this.forwarderCity = forwarderCity;
+    }
+
+    public String getForwarderEmploee() {
+        return forwarderEmploee;
+    }
+
+    public void setForwarderEmploee(String forwarderEmploee) {
+        this.forwarderEmploee = forwarderEmploee;
+    }
+
+    public String getForwarderTelefone1() {
+        return forwarderTelefone1;
+    }
+
+    public void setForwarderTelefone1(String forwarderTelefone1) {
+        this.forwarderTelefone1 = forwarderTelefone1;
+    }
+
+    public String getForwarderTelefone2() {
+        return forwarderTelefone2;
+    }
+
+    public void setForwarderTelefone2(String forwarderTelefone2) {
+        this.forwarderTelefone2 = forwarderTelefone2;
+    }
+
+    public String getForwarderTelefone3() {
+        return forwarderTelefone3;
+    }
+
+    public void setForwarderTelefone3(String forwarderTelefone3) {
+        this.forwarderTelefone3 = forwarderTelefone3;
+    }
+
+    public String getForwarderEmail() {
+        return forwarderEmail;
+    }
+
+    public void setForwarderEmail(String forwarderEmail) {
+        this.forwarderEmail = forwarderEmail;
+    }
+
+    public String getForwarderLogicId() {
+        return forwarderLogicId;
+    }
+
+    public void setForwarderLogicId(String forwarderLogicId) {
+        this.forwarderLogicId = forwarderLogicId;
+    }
+
+    public String getForwarderNote() {
+        return forwarderNote;
+    }
+
+    public void setForwarderNote(String forwarderNote) {
+        this.forwarderNote = forwarderNote;
+    }
 }

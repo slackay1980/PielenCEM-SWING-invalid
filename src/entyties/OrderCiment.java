@@ -1,13 +1,9 @@
 package entyties;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import java.sql.Time;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="ORDER_CIMENT")
@@ -34,6 +30,19 @@ public class OrderCiment {
 	@ManyToOne
 	@JoinColumn(name="FORWARDER_ID")
 	private Forwarder forwarder;
+
+	@OneToMany(mappedBy = "orderCiment")
+	private List<TransportOrder> transportOrders;
+
+	@Column(name = "DATE")
+	private Date date;
+
+	@Column(name = "TIME_FROM")
+	private Time fromTime;
+
+	@Column(name = "TIME_TILL")
+	private Time tillTime;
+
 	
 	@Column(name="CUSOMER_TXT")
 	private String  customerTxt;

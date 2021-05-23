@@ -15,15 +15,24 @@ public class Relation {
     @JoinColumn(name="CUSTOMERSTATION_ID")
     private CustomerStation customerStation;
 
-
-
-
     @ManyToOne
     @JoinColumn(name="PRODUCENTSTATION_ID")
     private ProducentStation producentStation;
 
+    public List<Freight> getFreights() {
+        return freights;
+    }
+
+    public void setFreights(List<Freight> freights) {
+        this.freights = freights;
+    }
+
+    @OneToMany(mappedBy = "relation")
+    private List<Freight> freights;
+
     @Column(name = "RELATION_NAME")
     private String relationName;
+
 
     @Column(name = "DISTANCE")
     private int distance;
