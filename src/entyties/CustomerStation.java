@@ -1,6 +1,7 @@
 package entyties;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -47,9 +48,16 @@ public class CustomerStation {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="CUSTOMER_ID")
     private Customer customer;
+
+
     
     @OneToMany(mappedBy = "customerStation")
     private List<OrderCiment> orderCiment;
+
+	@OneToMany(mappedBy = "customerStation")
+	private List<Relation> relations;
+
+
 
 	public int getId() {
 		return Id;

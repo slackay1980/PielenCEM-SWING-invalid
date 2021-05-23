@@ -55,6 +55,9 @@ public class ProducentStation {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "producentStation")
     private List<Product> product;
 
+	@OneToMany(mappedBy = "producentStation")
+	private List<Relation> relations;
+
 
 	public ProducentStation() {
 		
