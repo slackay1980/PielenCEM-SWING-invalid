@@ -231,17 +231,39 @@ public class PielenCEM {
 		 separator_1_1.setBounds(65, 367, 144, 12);
 		 sidePanel.add(separator_1_1);
 		 
-		 JLabel lblForwarderNew = new JLabel("- Neue Spedition anlegen");
-		 lblForwarderNew.setForeground(Color.WHITE);
-		 lblForwarderNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		 lblForwarderNew.setBounds(23, 390, 251, 30);
-		 sidePanel.add(lblForwarderNew);
+		 JLabel lblProducentNew = new JLabel("- Neuen Hersteller anlegen");
+		lblProducentNew.setForeground(Color.WHITE);
+		lblProducentNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblProducentNew.setBounds(23, 390, 251, 30);
+		lblProducentNew.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblProducentNew.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblProducentNew.setForeground(Color.WHITE);
+			}
+		});
+		 sidePanel.add(lblProducentNew);
 		 
-		 JLabel lblForwarderChange = new JLabel("- Speditiondaten aendern");
-		 lblForwarderChange.setForeground(Color.WHITE);
-		 lblForwarderChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		 lblForwarderChange.setBounds(23, 427, 251, 30);
-		 sidePanel.add(lblForwarderChange);
+		 JLabel lblProducentStationNew = new JLabel("- Neue Ladestation anlegen");
+		lblProducentStationNew.setForeground(Color.WHITE);
+		lblProducentStationNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblProducentStationNew.setBounds(23, 427, 251, 30);
+		lblProducentStationNew.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblProducentStationNew.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblProducentStationNew.setForeground(Color.WHITE);
+			}
+		});
+		 sidePanel.add(lblProducentStationNew);
 		 
 		 JPanel bottomPanel = new JPanel();
 		 bottomPanel.setBackground(UIManager.getColor("InternalFrame.background"));
@@ -257,11 +279,14 @@ public class PielenCEM {
 		controlList.put("lblCustomerNew",lblCustomerNew);
 		controlList.put("lblCustomerChange",lblCustomerChange);
 		controlList.put("lblCustomerStationNew",lblCustomerStationNew);
-		controlList.put("lblForwarderNew",lblForwarderNew);
-		controlList.put("lblForwarderChange",lblForwarderChange);
+		controlList.put("lblProducentNew",lblProducentNew);
+		controlList.put("lblProducentStationNew",lblProducentStationNew);
 
 		System.out.println((JFrame)controlList.get("frame"));
 		System.out.println((JLabel)controlList.get("lblOrderNew"));
+
+
+
 		new MainControlService(controlList);
 
 
