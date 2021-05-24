@@ -42,7 +42,7 @@ public class AddCustomerStationDlg extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(128, 0, 0));
 		panel.setBounds(0, 0, 751, 40);
@@ -58,7 +58,7 @@ public class AddCustomerStationDlg extends JDialog {
 				dispose();
 			}
 
-		
+
 		});
 		lblCloseDialog.setForeground(new Color(255, 255, 255));
 		lblCloseDialog.setFont(new Font("Lucida Grande", Font.BOLD, 16));
@@ -66,8 +66,8 @@ public class AddCustomerStationDlg extends JDialog {
 		lblCloseDialog.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCloseDialog.setBounds(688, 3, 49, 26);
 		panel.add(lblCloseDialog);
-		
-		
+
+
 		JLabel lblNewLabel = new JLabel("Kunden bestimmen");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(39, 68, 154, 16);
@@ -80,11 +80,11 @@ public class AddCustomerStationDlg extends JDialog {
 		contentPanel.add(searchCustomer);
 		searchCustomer.setColumns(10);
 		searchCustomer.setBorder(BorderFactory.createEmptyBorder());
-		
+
 		JSeparator separator = new JSeparator();
 		separator.setBounds(38, 121, 326, 12);
 		contentPanel.add(separator);
-		
+
 		lblSearch = new JLabel("Suchen");
 		lblSearch.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSearch.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
@@ -102,6 +102,39 @@ public class AddCustomerStationDlg extends JDialog {
 			}
 		});
 		contentPanel.add(lblSearch);
+
+
+		JLabel lblV = new JLabel("  V");
+		lblV.setForeground(Color.WHITE);
+		lblV.setBounds(691, 68, 32, 16);
+		lblV.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblV.setForeground(new Color(128, 0, 0));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblV.setForeground(Color.WHITE);
+			}
+
+		});
+		contentPanel.add(lblV);
+
+		JSeparator separator_1_1_1_1_2_2 = new JSeparator();
+		separator_1_1_1_1_2_2.setBounds(691, 90, 24, 12);
+		contentPanel.add(separator_1_1_1_1_2_2);
+
+		DefaultListModel model = new DefaultListModel();
+		JList list = new JList(model);
+		list.setForeground(new Color(255, 255, 255));
+		list.setBackground(new Color(112, 128, 144));
+		list.setBounds(530, 110, 190, 150);
+		list.setBorder(BorderFactory.createEmptyBorder());
+		JScrollPane scrollPane = new JScrollPane(list);
+		scrollPane.setBounds(530, 110, 190, 150);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		list.setEnabled(true);
+		contentPanel.add(scrollPane);
 
 		JLabel lblCompaniname = new JLabel("   Firmenname * ");
 		lblCompaniname.setForeground(new Color(255, 255, 255));
@@ -180,62 +213,62 @@ public class AddCustomerStationDlg extends JDialog {
 		lblTelMobile.setForeground(new Color(255, 255, 255));
 		lblTelMobile.setBounds(404, 395, 121, 16);
 		contentPanel.add(lblTelMobile);
-		
+
 		JSeparator separator1 = new JSeparator();
 		separator1.setBounds(29, 376, 257, 12);
 		contentPanel.add(separator1);
-		
+
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(22, 453, 264, 12);
 		contentPanel.add(separator_1);
-		
+
 		JSeparator separator_1_1 = new JSeparator();
 		separator_1_1.setBounds(22, 538, 264, 12);
 		contentPanel.add(separator_1_1);
-		
+
 		JSeparator separator_1_1_1 = new JSeparator();
 		separator_1_1_1.setBounds(22, 627, 264, 12);
 		contentPanel.add(separator_1_1_1);
-		
+
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBounds(403, 371, 257, 12);
 		contentPanel.add(separator_2);
-		
+
 		JSeparator separator_1_2 = new JSeparator();
 		separator_1_2.setBounds(402, 454, 264, 12);
 		contentPanel.add(separator_1_2);
-		
+
 		JSeparator separator_1_1_2 = new JSeparator();
 		separator_1_1_2.setBounds(402, 627, 264, 12);
 		contentPanel.add(separator_1_1_2);
-		
+
 		JLabel lblNotiz = new JLabel("  Notiz");
 		lblNotiz.setForeground(Color.WHITE);
 		lblNotiz.setBounds(408, 477, 121, 16);
 		contentPanel.add(lblNotiz);
-		
+
 		textPaneStationNotiz = new JTextPane();
 		textPaneStationNotiz.setForeground(new Color(255, 255, 255));
 		textPaneStationNotiz.setBackground(new Color(112, 128, 144));
 		textPaneStationNotiz.setBounds(409, 506, 251, 116);
 		contentPanel.add(textPaneStationNotiz);
 
-		DefaultListModel model = new DefaultListModel();
-		listCustomerStations = new JList(model);
+		DefaultListModel model1 = new DefaultListModel();
+		listCustomerStations = new JList(model1);
 		listCustomerStations.setBackground(new Color(112, 128, 144));
 		listCustomerStations.setForeground(new Color(255, 255, 255));
 		listCustomerStations.setBorder(BorderFactory.createEmptyBorder());
-		
-		JScrollPane scrollPane = new JScrollPane(listCustomerStations);
-		scrollPane.setBounds(36, 168, 611, 140);
-		scrollPane.setBorder(BorderFactory.createEmptyBorder());
-		contentPanel.add(scrollPane);
-		
+
+		JScrollPane scrollPane1 = new JScrollPane(listCustomerStations);
+		scrollPane1.setBounds(36, 168, 470, 140);
+		scrollPane1.setBorder(BorderFactory.createEmptyBorder());
+		contentPanel.add(scrollPane1);
+
 		JLabel lblBereitsAngelegteStationen = new JLabel("  Bereits angelegte Stationen");
 		lblBereitsAngelegteStationen.setForeground(Color.WHITE);
 		lblBereitsAngelegteStationen.setBounds(39, 140, 187, 16);
 		contentPanel.add(lblBereitsAngelegteStationen);
-		
+
 		lblAddStation = new JLabel("Neue Station speichern");
 		lblAddStation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAddStation.setForeground(Color.WHITE);
@@ -252,7 +285,7 @@ public class AddCustomerStationDlg extends JDialog {
 			}
 		});
 		contentPanel.add(lblAddStation);
-		
+
 		lblCancel = new JLabel("Abbruch");
 		lblCancel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCancel.setForeground(Color.WHITE);
@@ -284,6 +317,8 @@ public class AddCustomerStationDlg extends JDialog {
 		listControlls.put("listCustomerStations",listCustomerStations);
 		listControlls.put("lblAddStation",lblAddStation);
 		listControlls.put("lblCancel",lblCancel);
+		listControlls.put("lblV",lblV);
+		listControlls.put("operationAreaList",list);
 		listControlls.put("contentPanel",contentPanel);
 		listControlls.put("dialog",this);
 
@@ -291,10 +326,10 @@ public class AddCustomerStationDlg extends JDialog {
 		new AddCustomerStationService(listControlls);
 
 
-		
-		
+
+
 
 	}
-	
+
 
 }

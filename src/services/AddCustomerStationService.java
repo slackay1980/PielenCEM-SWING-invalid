@@ -5,6 +5,8 @@ import dao.CustomerStationDAO;
 import entyties.Customer;
 import entyties.CustomerStation;
 
+import entyties.OperationArea;
+import entyties.User;
 import ui.AcceptDlg;
 import ui.InfoDlg;
 import ui.PullDownListDlg;
@@ -36,8 +38,19 @@ public class AddCustomerStationService {
     private JList listCustomerStations;
     private JLabel lblAddStation;
     private JLabel lblCancel;
+    private JLabel lblV;
+    private JList listOperationArea;
     private JDialog dialog;
     private JPanel contentPanel;
+
+    //helper Variables
+
+    private int userIndex;
+    private List<User> sellers = null;
+    private boolean listButton = true;
+    private boolean savedOperationArea = false;
+    boolean isSelectedOperationArea = false;
+    private String selectedOperationArea;
 
 
     public AddCustomerStationService(   LinkedHashMap listControlls) {
@@ -56,6 +69,8 @@ public class AddCustomerStationService {
         this.listCustomerStations = (JList) listControlls.get("listCustomerStations");
         this.lblAddStation = (JLabel) listControlls.get("lblAddStation");
         this.lblCancel = (JLabel) listControlls.get("lblCancel");
+        this.lblV =(JLabel) listControlls.get("lblV");
+        this.listOperationArea = (JList) listControlls.get("operationAreaList");
         this.dialog = (JDialog) listControlls.get("dialog");
         this.contentPanel = (JPanel) listControlls.get("contentPanel");
 
@@ -139,6 +154,75 @@ public class AddCustomerStationService {
             }
 
         });
+
+        lblV.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (listButton) {
+                    lblV.setText(" X");
+                    listButton = false;
+                    isSelectedOperationArea = false;
+                    listOperationArea.setEnabled(true);
+                    jListFill();
+                    // Doppelclick abfangen
+                    listOperationArea.addMouseListener(new MouseAdapter() {
+                        public void mouseClicked(MouseEvent evt) {
+                            if (isSelectedOperationArea == false) {
+                                boolean firstClick = true;
+                                if (evt.getClickCount() == 2) {
+
+                                    // Double-click detected
+                                    if (firstClick == true) {
+                                        userIndex = listOperationArea.getSelectedIndex();
+
+                                        if (userIndex >= 0) {
+                                            // selectedOperationArea = (String) OperationArea.values()[userIndex];
+                                            DefaultListModel defaultListModel = (DefaultListModel) listOperationArea.getModel();
+                                            defaultListModel.clear();
+                                            defaultListModel.addElement(OperationArea.values()[userIndex]);
+                                            firstClick = false;
+                                            isSelectedOperationArea = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    listOperationArea.addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyPressed(KeyEvent e) {
+                            if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+
+                                if (isSelectedOperationArea == false) {
+                                    userIndex = listOperationArea.getSelectedIndex();
+
+                                    if (userIndex >= 0) {
+                                        // seller = (User) sellers.get(userIndex);
+                                        DefaultListModel defaultListModel = (DefaultListModel) listOperationArea.getModel();
+                                        defaultListModel.clear();
+                                        defaultListModel.addElement(OperationArea.values()[userIndex]);
+                                        isSelectedOperationArea = true;
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+
+
+                }
+                else {
+                    lblV.setText(" V");
+                    listButton = true;
+                    isSelectedOperationArea = true;
+                    DefaultListModel defaultListModel = (DefaultListModel) listOperationArea.getModel();
+                    defaultListModel.clear();
+                    //seller = null;
+                    listOperationArea.setEnabled(false);
+                }
+
+            }
+        });
     }
 
     private boolean checkFieldsIfFilled() {
@@ -148,6 +232,7 @@ public class AddCustomerStationService {
         if (newStationLandPostcode.getText().equals("")) checked = false;
         if (newStationCity.getText().equals("")) checked = false;
         if (customer==null) checked = false;
+        if (isSelectedOperationArea==false) checked=false;
         return checked;
     }
 
@@ -164,6 +249,7 @@ public class AddCustomerStationService {
         newCustomerStation.setStationTelefone1(newStationTel1.getText());
         newCustomerStation.setStationNote(textPaneStationNotiz.getText());
         newCustomerStation.setCustomer(customer);
+        newCustomerStation.setStationOperationArea(OperationArea.values()[userIndex]);
     }
 
     private void saveCustomerStation() {
@@ -201,6 +287,14 @@ public class AddCustomerStationService {
         for (CustomerStation station :  customerStations) {
             defaultListModel.addElement(station.getStationName() + ", " + station.getStationLandPostCode() + " " +
                     station.getStationCity());
+        }
+    }
+
+    private void jListFill() {
+
+        for (OperationArea operationArea : OperationArea.values()) {
+            DefaultListModel defaultListModel = (DefaultListModel) listOperationArea.getModel();
+            defaultListModel.addElement(operationArea);
         }
     }
 

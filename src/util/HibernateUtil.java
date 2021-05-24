@@ -23,6 +23,7 @@ public class HibernateUtil {
 			config.addAnnotatedClass(entyties.User.class);
 			config.addAnnotatedClass(entyties.Freight.class);
 			config.addAnnotatedClass(entyties.Forwarder.class);
+			config.addAnnotatedClass(entyties.TransportOrder.class);
 
 			config.addAnnotatedClass(entyties.Relation.class);
 

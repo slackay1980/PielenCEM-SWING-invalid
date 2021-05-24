@@ -44,8 +44,13 @@ public class CustomerStation {
    
     @Column(name ="STATION_NOTE")
     private String stationNote;
-    
-    @ManyToOne(fetch = FetchType.EAGER)
+
+	@Column(name ="STATION_OPERATIONAREA")
+	@Enumerated(EnumType.STRING)
+	private OperationArea stationOperationArea;
+
+
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="CUSTOMER_ID")
     private Customer customer;
 
@@ -154,6 +159,23 @@ public class CustomerStation {
 	public void setOrderCiment(List<OrderCiment> orderCiment) {
 		this.orderCiment = orderCiment;
 	}
+
+	public OperationArea getStationOperationArea() {
+		return stationOperationArea;
+	}
+
+	public void setStationOperationArea(OperationArea stationOperationArea) {
+		this.stationOperationArea = stationOperationArea;
+	}
+
+	public List<Relation> getRelations() {
+		return relations;
+	}
+
+	public void setRelations(List<Relation> relations) {
+		this.relations = relations;
+	}
+
 
 	public CustomerStation(String stationName, String stationStreet, String stationLandPostCode, String stationCity,
 			String stationEmploee, String stationTelefone1, String stationTelefone2, String stationEmail,
