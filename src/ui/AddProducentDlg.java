@@ -1,5 +1,7 @@
 package ui;
 
+import services.AddProducentService;
+
 import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -98,10 +100,10 @@ public class AddProducentDlg extends JDialog {
 		newProducent_CompanyName.setColumns(10);
 		newProducent_CompanyName.setBorder(BorderFactory.createEmptyBorder());
 
-		JLabel newProducent_CompanyName = new JLabel("  Strasse *");
-		newProducent_CompanyName.setForeground(new Color(255, 255, 255));
-		newProducent_CompanyName.setBounds(36, 123, 121, 16);
-		contentPanel.add(newProducent_CompanyName);
+		JLabel lblnewProducent_CompanyName = new JLabel("  Strasse *");
+		lblnewProducent_CompanyName.setForeground(new Color(255, 255, 255));
+		lblnewProducent_CompanyName.setBounds(36, 123, 121, 16);
+		contentPanel.add(lblnewProducent_CompanyName);
 
 		newProducent_Street = new JTextField();
 		newProducent_Street.setBackground(new Color(112, 128, 144));
@@ -350,7 +352,7 @@ public class AddProducentDlg extends JDialog {
 		System.out.println((JLabel) controlList.get("lblSpeichern"));
 		System.out.println((JLabel) controlList.get("lblCancel"));
 
-	//	new AddCustomerService(controlList);
+	new AddProducentService(controlList);
 
 
 	}

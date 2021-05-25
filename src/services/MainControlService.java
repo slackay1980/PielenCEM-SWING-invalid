@@ -3,6 +3,7 @@ package services;
 import ui.AddCustomerDlg;
 import ui.AddCustomerStationDlg;
 import ui.AddProducentDlg;
+import ui.AddProducentStationDlg;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -22,6 +23,7 @@ public class MainControlService {
         this.lblCustomerNew =  (JLabel) controlList.get("lblCustomerNew");
         this.lblCustomerStationNew = (JLabel) controlList.get("lblCustomerStationNew");
         this.lblProducentNew = (JLabel) controlList.get("lblProducentNew");
+        this.lblProducentStationNew = (JLabel) controlList.get("lblProducentStationNew");
 
         setListener();
 
@@ -58,6 +60,17 @@ public class MainControlService {
                 AddProducentDlg addProducentDlg = new AddProducentDlg();
                 addProducentDlg.setModal(true);
                 addProducentDlg.setVisible(true);
+            }
+
+        });
+
+        lblProducentStationNew.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                AddProducentStationDlg addProducentStationDlg = new AddProducentStationDlg();
+                addProducentStationDlg.setModal(true);
+                addProducentStationDlg.setVisible(true);
             }
 
         });

@@ -114,23 +114,7 @@ public class AddCustomerStationService {
                 }
             }
         });
-        /*
-            searchCustomer.addKeyListener(new KeyAdapter() {
-                @Override
-                     if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                        System.out.println("Typed");
-                        setPullDownList();
-                    }
-                }
-                @Override
-                public void keyPressed(KeyEvent e) {
-                   if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                       System.out.println("Pressed");
-                        setPullDownList();
-                   }
-                }
-            });
-         */
+
         searchCustomer.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
