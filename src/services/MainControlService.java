@@ -1,9 +1,6 @@
 package services;
 
-import ui.AddCustomerDlg;
-import ui.AddCustomerStationDlg;
-import ui.AddProducentDlg;
-import ui.AddProducentStationDlg;
+import ui.*;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -11,19 +8,55 @@ import java.awt.event.MouseEvent;
 import java.util.LinkedHashMap;
 
 public class MainControlService {
-   // private LinkedHashMap controlList;
-    private JLabel lblCustomerNew;
-    private JLabel lblCustomerStationNew;
-    private JLabel lblProducentNew;
-    private JLabel  lblProducentStationNew;
+
+        private  JFrame frame;
+		private JTable table;
+		private JLabel lblOrderNew1;
+        private JLabel lblOrderNew2;
+        private JLabel lblOrderNew3;
+        private JLabel lblCustomerNew;
+        private JLabel lblCustomerChange;
+        private JLabel lblCustomerStationNew;
+        private JLabel lblCustomerStationChange;
+        private JLabel lblProducentNew;
+        private JLabel lblProducentChange;
+        private JLabel lblProducentStationNew;
+        private JLabel lblProducentStationChange;
+        private JLabel lblProductNew;
+        private JLabel lblProductChange;
+        private JLabel lblForwarderManagement;
+        private JLabel lblRelationManagement;
+        private JLabel lblFreightManagement;
+
 
     public MainControlService(LinkedHashMap controlList) {
 
-        // this.controlList = controlList;
-        this.lblCustomerNew =  (JLabel) controlList.get("lblCustomerNew");
+        this.frame =  (JFrame) controlList.get("frame");
+        this.table = (JTable) controlList.get("table");
+
+        this.lblOrderNew1 =  (JLabel) controlList.get("lblOrderNew1");
+        this.lblOrderNew2 = (JLabel) controlList.get("lblOrderNew2");
+        this.lblOrderNew3 = (JLabel) controlList.get("lblOrderNew3");
+
+
+        this.lblCustomerNew = (JLabel) controlList.get("lblCustomerNew");
+        this.lblCustomerChange = (JLabel) controlList.get("lblCustomerChange");
         this.lblCustomerStationNew = (JLabel) controlList.get("lblCustomerStationNew");
+        this.lblCustomerStationChange = (JLabel) controlList.get("lblCustomerStationChange");
+
         this.lblProducentNew = (JLabel) controlList.get("lblProducentNew");
+        this.lblProducentChange = (JLabel) controlList.get("lblProducentChange");
         this.lblProducentStationNew = (JLabel) controlList.get("lblProducentStationNew");
+        this.lblProducentStationChange = (JLabel) controlList.get("lblProducentStationChange");
+        this.lblProductNew = (JLabel) controlList.get("lblProductNew");
+        this.lblProductChange = (JLabel) controlList.get("lblProductChange");
+
+        this.lblForwarderManagement = (JLabel) controlList.get("lblForwarderManagement");
+        this.lblRelationManagement = (JLabel) controlList.get("lblRelationManagement");
+        this.lblFreightManagement = (JLabel) controlList.get("lblFreightManagement");
+
+
+
 
         setListener();
 
@@ -71,6 +104,17 @@ public class MainControlService {
                 AddProducentStationDlg addProducentStationDlg = new AddProducentStationDlg();
                 addProducentStationDlg.setModal(true);
                 addProducentStationDlg.setVisible(true);
+            }
+
+        });
+
+        lblProductNew.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                AddProductDlg addProductDlg = new AddProductDlg();
+                addProductDlg.setModal(true);
+                addProductDlg   .setVisible(true);
             }
 
         });

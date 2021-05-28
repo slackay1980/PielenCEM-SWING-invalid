@@ -14,25 +14,74 @@ public class Product {
     @Column(name="ID")
     private int id;
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="producent_station_id")
+	private ProducentStation producentStation;
+
+	@OneToMany(mappedBy = "product")
+	private List<OrderCiment> orderCiment;
+
     @Column(name ="PRODUCT_NAME")
     private String productName;
-    
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="producent_station_id")
-    private ProducentStation producentStation;
-    
-    @OneToMany(mappedBy = "product")
-    private List<OrderCiment> orderCiment;
+
+	@Column(name ="PRODUCT_NAME_MORE")
+	private String productNameMore;
+
+	@Column(name ="FIELD_1")
+	private String field1;
+
+	public List<OrderCiment> getOrderCiment() {
+		return orderCiment;
+	}
+
+	public void setOrderCiment(List<OrderCiment> orderCiment) {
+		this.orderCiment = orderCiment;
+	}
+
+	public String getProductNameMore() {
+		return productNameMore;
+	}
+
+	public void setProductNameMore(String productNameMore) {
+		this.productNameMore = productNameMore;
+	}
+
+	public String getField1() {
+		return field1;
+	}
+
+	public void setField1(String field1) {
+		this.field1 = field1;
+	}
+
+	public String getField2() {
+		return field2;
+	}
+
+	public void setField2(String field2) {
+		this.field2 = field2;
+	}
+
+	public Product(ProducentStation producentStation, List<OrderCiment> orderCiment, String productName, String productNameMore, String field1, String field2) {
+		this.producentStation = producentStation;
+		this.orderCiment = orderCiment;
+		this.productName = productName;
+		this.productNameMore = productNameMore;
+		this.field1 = field1;
+		this.field2 = field2;
+	}
+
+	@Column(name ="FIELD_2")
+	private String field2;
+
+
+
 
 	public Product() {
 		
 	}
 
-	public Product(int id, String productName, ProducentStation producentStation) {
-		this.id = id;
-		this.productName = productName;
-		this.producentStation = producentStation;
-	}
+
 
 	public int getId() {
 		return id;

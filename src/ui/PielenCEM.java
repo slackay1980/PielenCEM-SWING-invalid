@@ -164,29 +164,60 @@ public class PielenCEM {
 		separator.setBounds(171, 69, 62, 12);
 		sidePanel.add(separator);
 
-		JLabel lblOrderNew = new JLabel("- Bestellung eingeben (V)");
-		lblOrderNew.setForeground(new Color(255, 255, 255));
-		lblOrderNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblOrderNew.setBounds(23, 119, 251, 30);
-		sidePanel.add(lblOrderNew);
+		JLabel lblOrderNew1 = new JLabel("- Bestellung eingeben (V)");
+		lblOrderNew1.setForeground(new Color(255, 255, 255));
+		lblOrderNew1.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblOrderNew1.setBounds(23, 119, 251, 30);
+		lblOrderNew1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblOrderNew1.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblOrderNew1.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblOrderNew1);
 
 
-		JLabel lblOrderChange = new JLabel("- Bestellung eingeben (S)");
-		lblOrderChange.setForeground(Color.WHITE);
-		lblOrderChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblOrderChange.setBounds(23, 149, 251, 30);
-		sidePanel.add(lblOrderChange);
+		JLabel lblOrderNew2 = new JLabel("- Bestellung eingeben (S)");
+		lblOrderNew2.setForeground(Color.WHITE);
+		lblOrderNew2.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblOrderNew2.setBounds(23, 149, 251, 30);
+		lblOrderNew2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblOrderNew2.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblOrderNew2.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblOrderNew2);
 
 
-		JLabel lblOrderDelete = new JLabel("- Bestellung eingeben (Vordr.)");
-		lblOrderDelete.setForeground(Color.WHITE);
-		lblOrderDelete.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblOrderDelete.setBounds(23, 180, 251, 30);
-		sidePanel.add(lblOrderDelete);
+		JLabel lblOrderNew3 = new JLabel("- Bestellung eingeben (Vordr.)");
+		lblOrderNew3.setForeground(Color.WHITE);
+		lblOrderNew3.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblOrderNew3.setBounds(23, 180, 251, 30);
+		lblOrderNew3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblOrderNew3.setForeground(new Color(139, 0, 0));
+			}
 
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(65, 209, 144, 12);
-		sidePanel.add(separator_1);
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblOrderNew3.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblOrderNew3);
+
+
 
 		JLabel lblCustomerNew = new JLabel("- Neuen Kunden anlegen");
 		lblCustomerNew.setForeground(Color.WHITE);
@@ -209,6 +240,17 @@ public class PielenCEM {
 		lblCustomerChange.setForeground(Color.WHITE);
 		lblCustomerChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblCustomerChange.setBounds(23, 253, 251, 30);
+		lblCustomerChange.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblCustomerChange.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblCustomerChange.setForeground(Color.WHITE);
+			}
+		});
 		sidePanel.add(lblCustomerChange);
 
 		JLabel lblCustomerStationNew = new JLabel("- Neue Station anlegen");
@@ -228,9 +270,22 @@ public class PielenCEM {
 		});
 		sidePanel.add(lblCustomerStationNew);
 
-		JSeparator separator_1_1 = new JSeparator();
-		separator_1_1.setBounds(65, 344, 144, 12);
-		sidePanel.add(separator_1_1);
+		JLabel lblCustomerStationChange = new JLabel("- Station redaktieren");
+		lblCustomerStationChange.setForeground(Color.WHITE);
+		lblCustomerStationChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblCustomerStationChange.setBounds(23, 311, 251, 30);
+		lblCustomerStationChange.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblCustomerStationChange.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblCustomerStationChange.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblCustomerStationChange);
 
 		JLabel lblProducentNew = new JLabel("- Neuen Hersteller anlegen");
 		lblProducentNew.setForeground(Color.WHITE);
@@ -249,6 +304,25 @@ public class PielenCEM {
 		});
 		sidePanel.add(lblProducentNew);
 
+
+
+		JLabel lblProducentChange = new JLabel("- Hersteller aendern");
+		lblProducentChange.setForeground(Color.WHITE);
+		lblProducentChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblProducentChange.setBounds(23, 392, 251, 30);
+		lblProducentChange.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblProducentChange.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblProducentChange.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblProducentChange);
+
 		JLabel lblProducentStationNew = new JLabel("- Neue Ladestation anlegen");
 		lblProducentStationNew.setForeground(Color.WHITE);
 		lblProducentStationNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
@@ -266,79 +340,152 @@ public class PielenCEM {
 		});
 		sidePanel.add(lblProducentStationNew);
 
-		JPanel bottomPanel = new JPanel();
-		bottomPanel.setBackground(UIManager.getColor("InternalFrame.background"));
-		bottomPanel.setBounds(304, 750, 1090, 49);
-		frame.getContentPane().add(bottomPanel);
 
-		controlList = new LinkedHashMap<String,Object>();
-		controlList.put("frame",frame);
-		controlList.put("mainTable",table);
-		controlList.put("lblOrderNew",lblOrderNew);
-		controlList.put("lblOrderChange",lblOrderChange);
-		controlList.put("lblOrderDelete",lblOrderDelete);
-		controlList.put("lblCustomerNew",lblCustomerNew);
-		controlList.put("lblCustomerChange",lblCustomerChange);
-		controlList.put("lblCustomerStationNew",lblCustomerStationNew);
-		controlList.put("lblProducentNew",lblProducentNew);
-		controlList.put("lblProducentStationNew",lblProducentStationNew);
 
-		JLabel lblNeuenProduct = new JLabel("- Neuen Product anlegen");
-		lblNeuenProduct.setForeground(Color.WHITE);
-		lblNeuenProduct.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblNeuenProduct.setBounds(23, 480, 251, 30);
-		sidePanel.add(lblNeuenProduct);
+		JLabel lblProducentStationChange = new JLabel("- Ladestation aendern");
+		lblProducentStationChange.setForeground(Color.WHITE);
+		lblProducentStationChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblProducentStationChange.setBounds(23, 452, 251, 30);
+		lblProducentStationChange.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblProducentStationChange.setForeground(new Color(139, 0, 0));
+			}
 
-		JLabel lblStationRedaktieren = new JLabel("- Station redaktieren");
-		lblStationRedaktieren.setForeground(Color.WHITE);
-		lblStationRedaktieren.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblStationRedaktieren.setBounds(23, 311, 251, 30);
-		sidePanel.add(lblStationRedaktieren);
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblProducentStationChange.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblProducentStationChange);
 
-		JLabel lblHerstellerAendern = new JLabel("- Hersteller aendern");
-		lblHerstellerAendern.setForeground(Color.WHITE);
-		lblHerstellerAendern.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblHerstellerAendern.setBounds(23, 392, 251, 30);
-		sidePanel.add(lblHerstellerAendern);
+		JLabel lblProductNew = new JLabel("- Neuen Product anlegen");
+		lblProductNew.setForeground(Color.WHITE);
+		lblProductNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblProductNew.setBounds(23, 480, 251, 30);
+		lblProductNew.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblProductNew.setForeground(new Color(139, 0, 0));
+			}
 
-		JLabel lblLadestationAendern = new JLabel("- Ladestation aendern");
-		lblLadestationAendern.setForeground(Color.WHITE);
-		lblLadestationAendern.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblLadestationAendern.setBounds(23, 452, 251, 30);
-		sidePanel.add(lblLadestationAendern);
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblProductNew.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblProductNew);
 
-		JLabel lblProductAendern = new JLabel("- Product aendern");
-		lblProductAendern.setForeground(Color.WHITE);
-		lblProductAendern.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblProductAendern.setBounds(23, 510, 251, 30);
-		sidePanel.add(lblProductAendern);
+		JLabel lblProductChange = new JLabel("- Product aendern");
+		lblProductChange.setForeground(Color.WHITE);
+		lblProductChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblProductChange.setBounds(23, 510, 251, 30);
+		lblProductChange.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblProductChange.setForeground(new Color(139, 0, 0));
+			}
 
-		JSeparator separator_1_1_1 = new JSeparator();
-		separator_1_1_1.setBounds(65, 552, 144, 12);
-		sidePanel.add(separator_1_1_1);
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblProductChange.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblProductChange);
 
-		JLabel lblTransporteurManagement = new JLabel("- Transporteur management");
-		lblTransporteurManagement.setForeground(Color.WHITE);
-		lblTransporteurManagement.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblTransporteurManagement.setBounds(23, 576, 251, 30);
-		sidePanel.add(lblTransporteurManagement);
+
+		JLabel lblForwarderManagement = new JLabel("- Transporteur management");
+		lblForwarderManagement.setForeground(Color.WHITE);
+		lblForwarderManagement.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblForwarderManagement.setBounds(23, 576, 251, 30);
+		lblForwarderManagement.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblForwarderManagement.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblForwarderManagement.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblForwarderManagement);
 
 		JLabel lblRelationManagement = new JLabel("- Relation management");
 		lblRelationManagement.setForeground(Color.WHITE);
 		lblRelationManagement.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblRelationManagement.setBounds(23, 607, 251, 30);
+		lblRelationManagement.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblRelationManagement.setForeground(new Color(139, 0, 0));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblRelationManagement.setForeground(Color.WHITE);
+			}
+		});
 		sidePanel.add(lblRelationManagement);
 
-		JLabel lblFrachtsatzManagement = new JLabel("- Frachtsatz management");
-		lblFrachtsatzManagement.setForeground(Color.WHITE);
-		lblFrachtsatzManagement.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblFrachtsatzManagement.setBounds(23, 638, 251, 30);
-		sidePanel.add(lblFrachtsatzManagement);
+		JLabel lblFreightManagement = new JLabel("- Frachtsatz management");
+		lblFreightManagement.setForeground(Color.WHITE);
+		lblFreightManagement.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblFreightManagement.setBounds(23, 638, 251, 30);
+		lblFreightManagement.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblFreightManagement.setForeground(new Color(139, 0, 0));
+			}
 
-		System.out.println((JFrame)controlList.get("frame"));
-		System.out.println((JLabel)controlList.get("lblOrderNew"));
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblFreightManagement.setForeground(Color.WHITE);
+			}
+		});
+		sidePanel.add(lblFreightManagement);
 
 
+		JPanel bottomPanel = new JPanel();
+		bottomPanel.setBackground(UIManager.getColor("InternalFrame.background"));
+		bottomPanel.setBounds(304, 750, 1090, 49);
+		frame.getContentPane().add(bottomPanel);
+
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(65, 209, 144, 12);
+		sidePanel.add(separator_1);
+
+		JSeparator separator_1_1_1 = new JSeparator();
+		separator_1_1_1.setBounds(65, 552, 144, 12);
+		sidePanel.add(separator_1_1_1);
+
+		JSeparator separator_1_1 = new JSeparator();
+		separator_1_1.setBounds(65, 344, 144, 12);
+		sidePanel.add(separator_1_1);
+
+
+		controlList = new LinkedHashMap<String,Object>();
+		controlList.put("frame",frame);
+		controlList.put("mainTable",table);
+		controlList.put("lblOrderNew1",lblOrderNew1);
+		controlList.put("lblOrderNew2",lblOrderNew2);
+		controlList.put("lblOrderNew3",lblOrderNew3);
+
+		controlList.put("lblCustomerNew",lblCustomerNew);
+		controlList.put("lblCustomerChange",lblCustomerChange);
+		controlList.put("lblCustomerStationNew",lblCustomerStationNew);
+		controlList.put("lblCustomerStationChange",lblCustomerStationChange);
+
+		controlList.put("lblProducentNew",lblProducentNew);
+		controlList.put("lblProducentChange",lblProducentChange);
+		controlList.put("lblProducentStationNew",lblProducentStationNew);
+		controlList.put("lblProducentStationChange",lblProducentStationChange);
+		controlList.put("lblProductNew",lblProductNew);
+		controlList.put("lblProductChange",lblProductChange);
+
+		controlList.put("lblForwarderManagement",lblForwarderManagement);
+		controlList.put("lblRelationManagement",lblRelationManagement);
+		controlList.put("lblFreightManagement",lblFreightManagement);
 
 		new MainControlService(controlList);
 
