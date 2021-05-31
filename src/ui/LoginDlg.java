@@ -105,6 +105,8 @@ public class LoginDlg extends JDialog {
 		panel.setBounds(0, 0, 477, 56);
 		contentPanel.add(panel);
 		panel.setLayout(null);
+
+		new ComponentMover(this, panel);
 		
 		JLabel lblNewLabel = new JLabel(" X ");
 		lblNewLabel.addMouseListener(new MouseAdapter() {
@@ -125,6 +127,7 @@ public class LoginDlg extends JDialog {
 		panel_1.setBounds(0, 56, 477, 320);
 		contentPanel.add(panel_1);
 		panel_1.setLayout(null);
+
 		
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setHorizontalAlignment(SwingConstants.LEFT);
@@ -144,7 +147,7 @@ public class LoginDlg extends JDialog {
 		loginTextField.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(140, 105, 229, 12);
+		separator.setBounds(140, 110, 229, 12);
 		panel_1.add(separator);
 		
 		JLabel lblPassword = new JLabel("Password:");
@@ -173,7 +176,7 @@ public class LoginDlg extends JDialog {
 
 
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(140, 185, 229, 12);
+		separator_1.setBounds(140, 190, 229, 12);
 		panel_1.add(separator_1);
 		
 		JLabel lblAnmelden = new JLabel("Anmelden");
