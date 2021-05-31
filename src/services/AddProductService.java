@@ -91,7 +91,12 @@ public class AddProductService {
                 if (e.getKeyCode()==10) {
                     PullDownProducentStationList pullDown = new PullDownProducentStationList(searchProducentStation);
                     producentStation = pullDown.showDialog();
-                    /* zu löschen */
+                    if (producentStation != null) {
+                        searchProducentStation.setText(producentStation.getStationName()
+                                                        +", "+ producentStation.getStationCity());
+                    }else {
+                        searchProducentStation.setText("");
+                    }
 
                 }
             }
@@ -102,6 +107,12 @@ public class AddProductService {
             public void mouseClicked(MouseEvent e) {
                 PullDownProducentStationList pullDown = new PullDownProducentStationList(searchProducentStation);
                 producentStation = pullDown.showDialog();
+                if (producentStation != null) {
+                    searchProducentStation.setText(producentStation.getStationName()
+                            +", "+ producentStation.getStationCity());
+                }else {
+                    searchProducentStation.setText("");
+                }
 
             }
 

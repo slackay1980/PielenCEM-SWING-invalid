@@ -24,7 +24,8 @@ public class MainControlService {
         private JLabel lblProducentStationChange;
         private JLabel lblProductNew;
         private JLabel lblProductChange;
-        private JLabel lblForwarderManagement;
+        private JLabel lblForwarderAdd;
+        private JLabel lblForwarderChange;
         private JLabel lblRelationManagement;
         private JLabel lblFreightManagement;
 
@@ -51,7 +52,8 @@ public class MainControlService {
         this.lblProductNew = (JLabel) controlList.get("lblProductNew");
         this.lblProductChange = (JLabel) controlList.get("lblProductChange");
 
-        this.lblForwarderManagement = (JLabel) controlList.get("lblForwarderManagement");
+        this.lblForwarderAdd = (JLabel) controlList.get("lblForwarderAdd");
+        this.lblForwarderChange = (JLabel) controlList.get("lblForwarderChange");
         this.lblRelationManagement = (JLabel) controlList.get("lblRelationManagement");
         this.lblFreightManagement = (JLabel) controlList.get("lblFreightManagement");
 
@@ -118,6 +120,18 @@ public class MainControlService {
             }
 
         });
+
+        lblForwarderAdd.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                AddForwarderDlg addForwarderDlg = new AddForwarderDlg();
+                addForwarderDlg.setModal(true);
+                addForwarderDlg   .setVisible(true);
+            }
+
+        });
+
 
 
     }

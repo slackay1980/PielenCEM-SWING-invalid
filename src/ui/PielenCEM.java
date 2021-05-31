@@ -167,7 +167,7 @@ public class PielenCEM {
 		JLabel lblOrderNew1 = new JLabel("- Bestellung eingeben (V)");
 		lblOrderNew1.setForeground(new Color(255, 255, 255));
 		lblOrderNew1.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblOrderNew1.setBounds(23, 119, 251, 30);
+		lblOrderNew1.setBounds(23, 83, 251, 30);
 		lblOrderNew1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -185,7 +185,7 @@ public class PielenCEM {
 		JLabel lblOrderNew2 = new JLabel("- Bestellung eingeben (S)");
 		lblOrderNew2.setForeground(Color.WHITE);
 		lblOrderNew2.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblOrderNew2.setBounds(23, 149, 251, 30);
+		lblOrderNew2.setBounds(23, 113, 251, 30);
 		lblOrderNew2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -203,7 +203,7 @@ public class PielenCEM {
 		JLabel lblOrderNew3 = new JLabel("- Bestellung eingeben (Vordr.)");
 		lblOrderNew3.setForeground(Color.WHITE);
 		lblOrderNew3.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblOrderNew3.setBounds(23, 180, 251, 30);
+		lblOrderNew3.setBounds(23, 144, 251, 30);
 		lblOrderNew3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -222,7 +222,7 @@ public class PielenCEM {
 		JLabel lblCustomerNew = new JLabel("- Neuen Kunden anlegen");
 		lblCustomerNew.setForeground(Color.WHITE);
 		lblCustomerNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblCustomerNew.setBounds(23, 222, 251, 30);
+		lblCustomerNew.setBounds(23, 186, 251, 30);
 		lblCustomerNew.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -239,7 +239,7 @@ public class PielenCEM {
 		JLabel lblCustomerChange = new JLabel("- Kundendaten aendern");
 		lblCustomerChange.setForeground(Color.WHITE);
 		lblCustomerChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblCustomerChange.setBounds(23, 253, 251, 30);
+		lblCustomerChange.setBounds(23, 217, 251, 30);
 		lblCustomerChange.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -256,7 +256,7 @@ public class PielenCEM {
 		JLabel lblCustomerStationNew = new JLabel("- Neue Station anlegen");
 		lblCustomerStationNew.setForeground(Color.WHITE);
 		lblCustomerStationNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblCustomerStationNew.setBounds(23, 280, 251, 30);
+		lblCustomerStationNew.setBounds(23, 244, 251, 30);
 		lblCustomerStationNew.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -273,7 +273,7 @@ public class PielenCEM {
 		JLabel lblCustomerStationChange = new JLabel("- Station redaktieren");
 		lblCustomerStationChange.setForeground(Color.WHITE);
 		lblCustomerStationChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblCustomerStationChange.setBounds(23, 311, 251, 30);
+		lblCustomerStationChange.setBounds(23, 275, 251, 30);
 		lblCustomerStationChange.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -290,7 +290,7 @@ public class PielenCEM {
 		JLabel lblProducentNew = new JLabel("- Neuen Hersteller anlegen");
 		lblProducentNew.setForeground(Color.WHITE);
 		lblProducentNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblProducentNew.setBounds(23, 360, 251, 30);
+		lblProducentNew.setBounds(23, 324, 251, 30);
 		lblProducentNew.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -309,7 +309,7 @@ public class PielenCEM {
 		JLabel lblProducentChange = new JLabel("- Hersteller aendern");
 		lblProducentChange.setForeground(Color.WHITE);
 		lblProducentChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblProducentChange.setBounds(23, 392, 251, 30);
+		lblProducentChange.setBounds(23, 356, 251, 30);
 		lblProducentChange.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -326,7 +326,7 @@ public class PielenCEM {
 		JLabel lblProducentStationNew = new JLabel("- Neue Ladestation anlegen");
 		lblProducentStationNew.setForeground(Color.WHITE);
 		lblProducentStationNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblProducentStationNew.setBounds(23, 418, 251, 30);
+		lblProducentStationNew.setBounds(23, 382, 251, 30);
 		lblProducentStationNew.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -345,7 +345,7 @@ public class PielenCEM {
 		JLabel lblProducentStationChange = new JLabel("- Ladestation aendern");
 		lblProducentStationChange.setForeground(Color.WHITE);
 		lblProducentStationChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblProducentStationChange.setBounds(23, 452, 251, 30);
+		lblProducentStationChange.setBounds(23, 416, 251, 30);
 		lblProducentStationChange.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -362,7 +362,7 @@ public class PielenCEM {
 		JLabel lblProductNew = new JLabel("- Neuen Product anlegen");
 		lblProductNew.setForeground(Color.WHITE);
 		lblProductNew.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblProductNew.setBounds(23, 480, 251, 30);
+		lblProductNew.setBounds(23, 444, 251, 30);
 		lblProductNew.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -379,7 +379,7 @@ public class PielenCEM {
 		JLabel lblProductChange = new JLabel("- Product aendern");
 		lblProductChange.setForeground(Color.WHITE);
 		lblProductChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblProductChange.setBounds(23, 510, 251, 30);
+		lblProductChange.setBounds(23, 474, 251, 30);
 		lblProductChange.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -394,22 +394,28 @@ public class PielenCEM {
 		sidePanel.add(lblProductChange);
 
 
-		JLabel lblForwarderManagement = new JLabel("- Transporteur management");
-		lblForwarderManagement.setForeground(Color.WHITE);
-		lblForwarderManagement.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblForwarderManagement.setBounds(23, 576, 251, 30);
-		lblForwarderManagement.addMouseListener(new MouseAdapter() {
+		JLabel lblForwarderAdd = new JLabel("- Transporteur anlegen");
+		lblForwarderAdd.setForeground(Color.WHITE);
+		lblForwarderAdd.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblForwarderAdd.setBounds(23, 540, 251, 30);
+		lblForwarderAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				lblForwarderManagement.setForeground(new Color(139, 0, 0));
+				lblForwarderAdd.setForeground(new Color(139, 0, 0));
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblForwarderManagement.setForeground(Color.WHITE);
+				lblForwarderAdd.setForeground(Color.WHITE);
 			}
 		});
-		sidePanel.add(lblForwarderManagement);
+		sidePanel.add(lblForwarderAdd);
+
+		JLabel lblTransporteurChange = new JLabel("- Transporteur aendern");
+		lblTransporteurChange.setForeground(Color.WHITE);
+		lblTransporteurChange.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblTransporteurChange.setBounds(23, 576, 251, 30);
+		sidePanel.add(lblTransporteurChange);
 
 		JLabel lblRelationManagement = new JLabel("- Relation management");
 		lblRelationManagement.setForeground(Color.WHITE);
@@ -452,15 +458,15 @@ public class PielenCEM {
 		frame.getContentPane().add(bottomPanel);
 
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(65, 209, 144, 12);
+		separator_1.setBounds(65, 173, 144, 12);
 		sidePanel.add(separator_1);
 
 		JSeparator separator_1_1_1 = new JSeparator();
-		separator_1_1_1.setBounds(65, 552, 144, 12);
+		separator_1_1_1.setBounds(65, 516, 144, 12);
 		sidePanel.add(separator_1_1_1);
 
 		JSeparator separator_1_1 = new JSeparator();
-		separator_1_1.setBounds(65, 344, 144, 12);
+		separator_1_1.setBounds(65, 308, 144, 12);
 		sidePanel.add(separator_1_1);
 
 
@@ -483,9 +489,12 @@ public class PielenCEM {
 		controlList.put("lblProductNew",lblProductNew);
 		controlList.put("lblProductChange",lblProductChange);
 
-		controlList.put("lblForwarderManagement",lblForwarderManagement);
+		controlList.put("lblForwarderAdd",lblForwarderAdd);
+		controlList.put("lblForwarderChange",lblTransporteurChange);
 		controlList.put("lblRelationManagement",lblRelationManagement);
 		controlList.put("lblFreightManagement",lblFreightManagement);
+
+
 
 		new MainControlService(controlList);
 
