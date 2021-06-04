@@ -132,6 +132,17 @@ public class MainControlService {
 
         });
 
+        lblRelationManagement.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                RelationManagementDlg relationManagementDlg = new RelationManagementDlg();
+                relationManagementDlg.setModal(true);
+                relationManagementDlg.setVisible(true);
+            }
+
+        });
+
 
 
     }
