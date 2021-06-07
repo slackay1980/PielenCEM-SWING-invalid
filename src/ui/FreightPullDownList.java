@@ -29,17 +29,24 @@ public class FreightPullDownList extends JDialog {
         setUndecorated(true);
 
         getContentPane().setLayout(new BorderLayout(0, 0));
-        Object[] newRow = {
+        Object[] Columnnames = {
                 ""
         };
 
-        tableModel = new DefaultTableModel();
+        Object[][] data = {
+                {"Fracht neu anlegen"},
+                {"Fracht ändern"},
+                {"Fracht Löschen"}
+        };
+
+        tableModel = new DefaultTableModel(data,Columnnames);
+        /*
         tableModel.addRow(newRow);
         tableModel.addRow(newRow);
         tableModel.addRow(newRow);
         tableModel.setValueAt("Fracht neu anlegen",1,1);
         tableModel.setValueAt("Fracht ändern",2,1);
-        tableModel.setValueAt("Fracht löschen",3,1);
+        tableModel.setValueAt("Fracht löschen",3,1);  */
         table = new JTable(tableModel);
         // table.getColumnModel().getColumn(0).setPreferredWidth(25);
         // table.getColumnModel().getColumn(1).setPreferredWidth(1000);
@@ -86,7 +93,7 @@ public class FreightPullDownList extends JDialog {
 
     public int showDialog() {
         point = jLabel.getLocationOnScreen();
-        setBounds((int)point.getX(),(int)point.y+jLabel.getHeight()+3,jLabel.getWidth(),257);
+        setBounds((int)point.getX(),(int)point.y+jLabel.getHeight()+3,jLabel.getWidth(),60);
         setModal(true);
         setAlwaysOnTop(true);
         setVisible(true);

@@ -149,7 +149,8 @@ public class MainControlService {
             public void mouseClicked(MouseEvent e) {
 
                 FreightPullDownList freightPullDownList = new FreightPullDownList(lblFreightManagement);
-                freightPullDownList.showDialog();
+                int i = freightPullDownList.showDialog();
+                System.out.println(i);
             }
 
         });

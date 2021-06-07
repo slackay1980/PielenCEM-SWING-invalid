@@ -94,6 +94,7 @@ public class AddProductService {
                     if (producentStation != null) {
                         searchProducentStation.setText(producentStation.getStationName()
                                                         +", "+ producentStation.getStationCity());
+                        searchProducentStation.setEditable(false);
                     }else {
                         searchProducentStation.setText("");
                     }
@@ -110,6 +111,7 @@ public class AddProductService {
                 if (producentStation != null) {
                     searchProducentStation.setText(producentStation.getStationName()
                             +", "+ producentStation.getStationCity());
+                    searchProducentStation.setEditable(false);
                 }else {
                     searchProducentStation.setText("");
                 }
