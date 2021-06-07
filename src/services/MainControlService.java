@@ -1,5 +1,6 @@
 package services;
 
+import entyties.Freight;
 import ui.*;
 
 import javax.swing.*;
@@ -139,6 +140,16 @@ public class MainControlService {
                 RelationManagementDlg relationManagementDlg = new RelationManagementDlg();
                 relationManagementDlg.setModal(true);
                 relationManagementDlg.setVisible(true);
+            }
+
+        });
+
+        lblFreightManagement.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                FreightPullDownList freightPullDownList = new FreightPullDownList(lblFreightManagement);
+                freightPullDownList.showDialog();
             }
 
         });
