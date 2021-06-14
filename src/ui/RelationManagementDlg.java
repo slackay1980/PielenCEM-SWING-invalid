@@ -253,6 +253,9 @@ public class RelationManagementDlg extends JDialog {
 		JCheckBox chckBoxCustom = new JCheckBox("     JA/ NEIN");
 		chckBoxCustom.setForeground(new Color(255, 255, 255));
 		chckBoxCustom.setBounds(47, 347, 128, 23);
+		chckBoxCustom.setBackground(new Color(112, 128, 144));
+		chckBoxCustom.setForeground(Color.WHITE);
+
 		contentPanel.add(chckBoxCustom);
 		
 		JLabel lblFeldoptional = new JLabel("  Feld 2 (optional)");
@@ -310,6 +313,11 @@ public class RelationManagementDlg extends JDialog {
 		// new AddForwarderService(controlList);
 
 
+	}
+
+	public void showDialog() {
+		setModal(true);
+		setVisible(true);
 	}
 }
 

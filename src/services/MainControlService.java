@@ -150,7 +150,11 @@ public class MainControlService {
 
                 FreightPullDownList freightPullDownList = new FreightPullDownList(lblFreightManagement);
                 int i = freightPullDownList.showDialog();
-                System.out.println(i);
+                switch (i) {
+                    case 0: new RelationManagementDlg().showDialog();break;
+                    case 1: new RelationManagementDlg().showDialog();break;
+                }
+
             }
 
         });

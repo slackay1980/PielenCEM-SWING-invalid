@@ -1,7 +1,6 @@
 package ui;
 
-import java.awt.BorderLayout;
-import java.awt.Point;
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyAdapter;
@@ -14,7 +13,7 @@ public class FreightPullDownList extends JDialog {
     private static final long serialVersionUID = 1L;
     private JLabel jLabel;
     private Point point;
-    private JTable table;
+    private JList  table;
     private int Index=-1;
     private DefaultTableModel tableModel;
 
@@ -29,29 +28,35 @@ public class FreightPullDownList extends JDialog {
         setUndecorated(true);
 
         getContentPane().setLayout(new BorderLayout(0, 0));
-        Object[] Columnnames = {
-                ""
-        };
 
-        Object[][] data = {
-                {"Fracht neu anlegen"},
-                {"Fracht ändern"},
-                {"Fracht Löschen"}
-        };
 
-        tableModel = new DefaultTableModel(data,Columnnames);
-        /*
+        final DefaultListModel model = new DefaultListModel();
+        model.addElement("Frachtsatz neu anlegen");
+        model.addElement("Frachtsatz ändern");
+        model.addElement("Etwas machen weiß nicht was");
+
+         /*tableModel = new DefaultTableModel(data,3);
+
         tableModel.addRow(newRow);
         tableModel.addRow(newRow);
         tableModel.addRow(newRow);
         tableModel.setValueAt("Fracht neu anlegen",1,1);
         tableModel.setValueAt("Fracht ändern",2,1);
-        tableModel.setValueAt("Fracht löschen",3,1);  */
+        tableModel.setValueAt("Fracht löschen",3,1);
         table = new JTable(tableModel);
         // table.getColumnModel().getColumn(0).setPreferredWidth(25);
-        // table.getColumnModel().getColumn(1).setPreferredWidth(1000);
+        // table.getColumnModel().getColumn(1).setPreferredWidth(1000);   */
+        table = new JList(model);
+        table.setBorder(BorderFactory.createEmptyBorder());
         JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        point = jLabel.getLocationOnScreen();
+        scrollPane.setBounds((int)point.getX(),(int)point.y+jLabel.getHeight()+3,jLabel.getWidth(),60);
         getContentPane().add(scrollPane);
+
+        table.setForeground(Color.WHITE);
+        table.setBackground(new Color(119, 136, 153));
+        // table.setShowGrid(false);
 
         setListeners();
 
@@ -84,7 +89,7 @@ public class FreightPullDownList extends JDialog {
                     dispose();
                 }
                 if (e.getKeyCode()==e.VK_ENTER) {
-                    Index = table.getSelectedRow();
+                    Index = table.getSelectedIndex();
                     dispose();
                 }
             }
@@ -93,7 +98,7 @@ public class FreightPullDownList extends JDialog {
 
     public int showDialog() {
         point = jLabel.getLocationOnScreen();
-        setBounds((int)point.getX(),(int)point.y+jLabel.getHeight()+3,jLabel.getWidth(),60);
+        setBounds((int)point.getX()+20,(int)point.y+jLabel.getHeight()+3,jLabel.getWidth()-50,60);
         setModal(true);
         setAlwaysOnTop(true);
         setVisible(true);
