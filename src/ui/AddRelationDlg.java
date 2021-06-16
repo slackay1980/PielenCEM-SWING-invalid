@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 import java.util.LinkedHashMap;
 
 
-public class RelationManagementDlg extends JDialog {
+public class AddRelationDlg extends JDialog {
 
 
 	private static final long serialVersionUID = 1L;
@@ -41,7 +41,7 @@ public class RelationManagementDlg extends JDialog {
 	 */
 	
 	
-	public RelationManagementDlg() {
+	public AddRelationDlg() {
 		controlList = new LinkedHashMap<String,Object>();
 		setUndecorated(true);
 		setBounds(100, 100, 693, 651);
