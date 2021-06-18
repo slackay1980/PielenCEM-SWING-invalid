@@ -88,7 +88,7 @@ public class RelationPullDownList extends JDialog {
 
     public int showDialog() {
         point = jLabel.getLocationOnScreen();
-        setBounds((int)point.getX()+20,(int)point.y+jLabel.getHeight()+3,jLabel.getWidth()-50,60);
+        setBounds((int)point.getX()+20,(int)point.y+jLabel.getHeight()+3,jLabel.getWidth()-50,80);
         setModal(true);
         setAlwaysOnTop(true);
         setVisible(true);

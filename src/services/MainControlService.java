@@ -132,16 +132,7 @@ public class MainControlService {
 
         });
 
-        lblRelationManagement.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
 
-                AddRelationDlg addRelationDlg = new AddRelationDlg();
-                addRelationDlg.setModal(true);
-                addRelationDlg.setVisible(true);
-            }
-
-        });
 
         lblFreightManagement.addMouseListener(new MouseAdapter() {
             @Override
@@ -149,6 +140,21 @@ public class MainControlService {
 
                 FreightPullDownList freightPullDownList = new FreightPullDownList(lblFreightManagement);
                 int i = freightPullDownList.showDialog();
+                switch (i) {
+                    case 0: new AddFreightDlg().showDialog();break;
+                    case 1: new AddFreightDlg().showDialog();break;
+                }
+
+            }
+
+        });
+
+        lblRelationManagement.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                RelationPullDownList relationPullDownList = new RelationPullDownList(lblRelationManagement);
+                int i = relationPullDownList.showDialog();
                 switch (i) {
                     case 0: new AddRelationDlg().showDialog();break;
                     case 1: new AddRelationDlg().showDialog();break;

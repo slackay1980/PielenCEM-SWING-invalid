@@ -35,17 +35,7 @@ public class FreightPullDownList extends JDialog {
         model.addElement("Frachtsatz ändern");
         model.addElement("Etwas machen weiß nicht was");
 
-         /*tableModel = new DefaultTableModel(data,3);
 
-        tableModel.addRow(newRow);
-        tableModel.addRow(newRow);
-        tableModel.addRow(newRow);
-        tableModel.setValueAt("Fracht neu anlegen",1,1);
-        tableModel.setValueAt("Fracht ändern",2,1);
-        tableModel.setValueAt("Fracht löschen",3,1);
-        table = new JTable(tableModel);
-        // table.getColumnModel().getColumn(0).setPreferredWidth(25);
-        // table.getColumnModel().getColumn(1).setPreferredWidth(1000);   */
         table = new JList(model);
         table.setBorder(BorderFactory.createEmptyBorder());
         JScrollPane scrollPane = new JScrollPane(table);

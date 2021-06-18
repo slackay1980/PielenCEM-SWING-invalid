@@ -248,6 +248,7 @@ public class AddFreightDlg extends JDialog {
 		JCheckBox chckFreightPerTo = new JCheckBox("     Fracht per To");
 		chckFreightPerTo.setForeground(new Color(255, 255, 255));
 		chckFreightPerTo.setBounds(36, 232, 190, 23);
+		chckFreightPerTo.setBackground(new Color(112, 128, 144));
 		contentPanel.add(chckFreightPerTo);
 		
 		JLabel lblFeldoptionalPerTo = new JLabel("  Feld 2 (optional)");
@@ -304,6 +305,7 @@ public class AddFreightDlg extends JDialog {
 		JCheckBox chckFreightFlatrate = new JCheckBox("     Fracht pauschal");
 		chckFreightFlatrate.setForeground(Color.WHITE);
 		chckFreightFlatrate.setBounds(366, 232, 190, 23);
+		chckFreightFlatrate.setBackground(new Color(112, 128, 144));
 		contentPanel.add(chckFreightFlatrate);
 		
 		textWhenAgreedPerTo = new JTextField();
@@ -343,6 +345,11 @@ public class AddFreightDlg extends JDialog {
 		// new AddForwarderService(controlList);
 
 
+	}
+
+	public void showDialog() {
+		setModal(true);
+		setVisible(true);
 	}
 }
 
