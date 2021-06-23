@@ -215,14 +215,6 @@ public class AddRelationDlg extends JDialog {
 
 		DefaultListModel model = new DefaultListModel();
 
-
-		controlList = new LinkedHashMap<String,Object>();
-		controlList.put("lblForwarderCompanyName",txtProducentStation);
-		controlList.put("lblForwarderStreet",txtCustomerStation);
-		controlList.put("lblForwarderLandPostcode",txtDistance);
-		controlList.put("lblForwarderEmploee",txtRelationField1);
-		controlList.put("textPaneForwarderNote",textRelationNotiz);
-		controlList.put("lblCloseDialog",lblCloseDialog);
 		
 		JLabel lblNeuenTransportunternehmerAnlegen = new JLabel("    Relation anlegen");
 		lblNeuenTransportunternehmerAnlegen.setHorizontalAlignment(SwingConstants.LEFT);
@@ -309,6 +301,19 @@ public class AddRelationDlg extends JDialog {
 		separator_1_1_1_1_2_1_1.setBounds(367, 372, 228, 11);
 		contentPanel.add(separator_1_1_1_1_2_1_1);
 		controlList.put("dialog", this);
+
+		controlList = new LinkedHashMap<String,Object>();
+
+		controlList.put("txtProducentStation",txtProducentStation);
+		controlList.put("txtCustomerStation",txtCustomerStation);
+		controlList.put("txtDistance",txtDistance);
+		controlList.put("",);
+		controlList.put("",);
+		controlList.put("",);
+		controlList.put("",);
+
+
+
 
 		// new AddForwarderService(controlList);
 
