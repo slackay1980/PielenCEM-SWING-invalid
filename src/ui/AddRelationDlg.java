@@ -315,7 +315,7 @@ public class AddRelationDlg extends JDialog {
 		controlList.put("lblCancel",lblCancel);
 
 
-		// new AddForwarderService(controlList);
+		new AddForwarderService(controlList);
 
 
 	}

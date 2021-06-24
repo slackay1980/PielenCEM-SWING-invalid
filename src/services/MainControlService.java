@@ -156,8 +156,8 @@ public class MainControlService {
                 RelationPullDownList relationPullDownList = new RelationPullDownList(lblRelationManagement);
                 int i = relationPullDownList.showDialog();
                 switch (i) {
-                    case 0: new AddRelationDlg().showDialog();break;
-                    case 1: new AddRelationDlg().showDialog();break;
+                    case 0: new AddRelationService().showDialog();break;
+                    case 1: new AddRelationService().showDialog();break;
                 }
 
             }
