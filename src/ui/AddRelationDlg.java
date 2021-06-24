@@ -25,7 +25,7 @@ public class AddRelationDlg extends JDialog {
 	private JTextField txtCustomerStation;
 	private JTextField txtDistance;
 	private JTextField txtRelationField1;
-	private JTextPane textRelationNotiz;
+	private JTextPane textRelationNotice;
 	private  JLabel lblCloseDialog;
 	private JLabel lblSaveRelation;
 	private JLabel lblCancel;
@@ -39,8 +39,8 @@ public class AddRelationDlg extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	
-	
+
+
 	public AddRelationDlg() {
 		controlList = new LinkedHashMap<String,Object>();
 		setUndecorated(true);
@@ -79,10 +79,10 @@ public class AddRelationDlg extends JDialog {
 		txtCustomerStation.setBounds(36, 143, 439, 31);
 		contentPanel.add(txtCustomerStation);
 
-		JLabel lblKrzelDesLandesplz = new JLabel("  Entfernung in km *");
-		lblKrzelDesLandesplz.setForeground(new Color(255, 255, 255));
-		lblKrzelDesLandesplz.setBounds(37, 244, 166, 16);
-		contentPanel.add(lblKrzelDesLandesplz);
+		JLabel lblDistanceKm = new JLabel("  Entfernung in km *");
+		lblDistanceKm.setForeground(new Color(255, 255, 255));
+		lblDistanceKm.setBounds(37, 244, 166, 16);
+		contentPanel.add(lblDistanceKm);
 
 		txtDistance = new JTextField();
 		txtDistance.setBackground(new Color(112, 128, 144));
@@ -92,15 +92,15 @@ public class AddRelationDlg extends JDialog {
 		txtDistance.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(txtDistance);
 
-		JLabel lblStadt = new JLabel("  Verzollung notwendig  *");
-		lblStadt.setForeground(new Color(255, 255, 255));
-		lblStadt.setBounds(37, 319, 221, 16);
-		contentPanel.add(lblStadt);
+		JLabel lblCustonYesNo = new JLabel("  Verzollung notwendig  *");
+		lblCustonYesNo.setForeground(new Color(255, 255, 255));
+		lblCustonYesNo.setBounds(37, 319, 221, 16);
+		contentPanel.add(lblCustonYesNo);
 
-		JLabel lblAnsprechpartner = new JLabel("  Feld 1 (optional)");
-		lblAnsprechpartner.setForeground(new Color(255, 255, 255));
-		lblAnsprechpartner.setBounds(36, 418, 121, 16);
-		contentPanel.add(lblAnsprechpartner);
+		JLabel lblField1 = new JLabel("  Feld 1 (optional)");
+		lblField1.setForeground(new Color(255, 255, 255));
+		lblField1.setBounds(36, 418, 121, 16);
+		contentPanel.add(lblField1);
 
 		txtRelationField1 = new JTextField();
 		txtRelationField1.setBackground(new Color(112, 128, 144));
@@ -110,16 +110,16 @@ public class AddRelationDlg extends JDialog {
 		txtRelationField1.setBorder(BorderFactory.createEmptyBorder());
 		contentPanel.add(txtRelationField1);
 
-		JLabel lblNewLabel_1 = new JLabel(" Notiz");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(366, 450, 61, 16);
-		contentPanel.add(lblNewLabel_1);
+		JLabel lblRelationNotice = new JLabel(" Notiz");
+		lblRelationNotice.setForeground(new Color(255, 255, 255));
+		lblRelationNotice.setBounds(366, 450, 61, 16);
+		contentPanel.add(lblRelationNotice);
 
-		textRelationNotiz = new JTextPane();
-		textRelationNotiz.setForeground(new Color(255, 255, 255));
-		textRelationNotiz.setBackground(new Color(112, 128, 144));
-		textRelationNotiz.setBounds(367, 485, 267, 77);
-		contentPanel.add(textRelationNotiz);
+		textRelationNotice = new JTextPane();
+		textRelationNotice.setForeground(new Color(255, 255, 255));
+		textRelationNotice.setBackground(new Color(112, 128, 144));
+		textRelationNotice.setBounds(367, 485, 267, 77);
+		contentPanel.add(textRelationNotice);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(128, 0, 0));
@@ -143,7 +143,7 @@ public class AddRelationDlg extends JDialog {
 		lblCloseDialog.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCloseDialog.setBounds(609, 6, 49, 26);
 		panel.add(lblCloseDialog);
-		
+
 
 		JSeparator separator = new JSeparator();
 		separator.setBounds(36, 100, 439, 12);
@@ -215,7 +215,8 @@ public class AddRelationDlg extends JDialog {
 
 		DefaultListModel model = new DefaultListModel();
 
-		
+
+
 		JLabel lblNeuenTransportunternehmerAnlegen = new JLabel("    Relation anlegen");
 		lblNeuenTransportunternehmerAnlegen.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNeuenTransportunternehmerAnlegen.setForeground(Color.WHITE);
@@ -225,7 +226,7 @@ public class AddRelationDlg extends JDialog {
 		panel.add(lblNeuenTransportunternehmerAnlegen);
 		controlList.put("lblSpeichern",lblSaveRelation);
 		controlList.put("lblCancel",lblCancel);
-		
+
 		JLabel lblSearchProducentStation = new JLabel(" Suchen");
 		lblSearchProducentStation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSearchProducentStation.setForeground(Color.WHITE);
@@ -233,7 +234,7 @@ public class AddRelationDlg extends JDialog {
 		lblSearchProducentStation.setBackground(Color.WHITE);
 		lblSearchProducentStation.setBounds(526, 72, 111, 26);
 		contentPanel.add(lblSearchProducentStation);
-		
+
 		JLabel lblSearchCustomerStation = new JLabel(" Suchen");
 		lblSearchCustomerStation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSearchCustomerStation.setForeground(Color.WHITE);
@@ -241,20 +242,17 @@ public class AddRelationDlg extends JDialog {
 		lblSearchCustomerStation.setBackground(Color.WHITE);
 		lblSearchCustomerStation.setBounds(526, 143, 111, 26);
 		contentPanel.add(lblSearchCustomerStation);
-		
+
 		JCheckBox chckBoxCustom = new JCheckBox("     JA/ NEIN");
 		chckBoxCustom.setForeground(new Color(255, 255, 255));
 		chckBoxCustom.setBounds(47, 347, 128, 23);
-		chckBoxCustom.setBackground(new Color(112, 128, 144));
-		chckBoxCustom.setForeground(Color.WHITE);
-
 		contentPanel.add(chckBoxCustom);
-		
-		JLabel lblFeldoptional = new JLabel("  Feld 2 (optional)");
-		lblFeldoptional.setForeground(Color.WHITE);
-		lblFeldoptional.setBounds(37, 507, 121, 16);
-		contentPanel.add(lblFeldoptional);
-		
+
+		JLabel lblField2 = new JLabel("  Feld 2 (optional)");
+		lblField2.setForeground(Color.WHITE);
+		lblField2.setBounds(37, 507, 121, 16);
+		contentPanel.add(lblField2);
+
 		txtRelationField2 = new JTextField();
 		txtRelationField2.setForeground(Color.WHITE);
 		txtRelationField2.setColumns(10);
@@ -262,16 +260,16 @@ public class AddRelationDlg extends JDialog {
 		txtRelationField2.setBackground(new Color(112, 128, 144));
 		txtRelationField2.setBounds(36, 531, 238, 31);
 		contentPanel.add(txtRelationField2);
-		
+
 		JSeparator separator_1_1_1_1_2 = new JSeparator();
 		separator_1_1_1_1_2.setBounds(38, 562, 228, 11);
 		contentPanel.add(separator_1_1_1_1_2);
-		
-		JLabel lblFeldoptional_2 = new JLabel(" Feld 3 (optional)");
-		lblFeldoptional_2.setForeground(Color.WHITE);
-		lblFeldoptional_2.setBounds(371, 247, 121, 16);
-		contentPanel.add(lblFeldoptional_2);
-		
+
+		JLabel lblRelation3 = new JLabel(" Feld 3 (optional)");
+		lblRelation3.setForeground(Color.WHITE);
+		lblRelation3.setBounds(371, 247, 121, 16);
+		contentPanel.add(lblRelation3);
+
 		txtRelationField3 = new JTextField();
 		txtRelationField3.setForeground(Color.WHITE);
 		txtRelationField3.setColumns(10);
@@ -279,16 +277,16 @@ public class AddRelationDlg extends JDialog {
 		txtRelationField3.setBackground(new Color(112, 128, 144));
 		txtRelationField3.setBounds(379, 271, 238, 31);
 		contentPanel.add(txtRelationField3);
-		
+
 		JSeparator separator_1_1_1_1_2_1 = new JSeparator();
 		separator_1_1_1_1_2_1.setBounds(372, 302, 228, 11);
 		contentPanel.add(separator_1_1_1_1_2_1);
-		
-		JLabel lblFeldoptional_2_1 = new JLabel("  Feld 4 (optional)");
-		lblFeldoptional_2_1.setForeground(Color.WHITE);
-		lblFeldoptional_2_1.setBounds(366, 317, 121, 16);
-		contentPanel.add(lblFeldoptional_2_1);
-		
+
+		JLabel lblRelation4 = new JLabel("  Feld 4 (optional)");
+		lblRelation4.setForeground(Color.WHITE);
+		lblRelation4.setBounds(366, 317, 121, 16);
+		contentPanel.add(lblRelation4);
+
 		textRelationField4 = new JTextField();
 		textRelationField4.setForeground(Color.WHITE);
 		textRelationField4.setColumns(10);
@@ -296,33 +294,30 @@ public class AddRelationDlg extends JDialog {
 		textRelationField4.setBackground(new Color(112, 128, 144));
 		textRelationField4.setBounds(374, 341, 238, 31);
 		contentPanel.add(textRelationField4);
-		
+
 		JSeparator separator_1_1_1_1_2_1_1 = new JSeparator();
 		separator_1_1_1_1_2_1_1.setBounds(367, 372, 228, 11);
 		contentPanel.add(separator_1_1_1_1_2_1_1);
 		controlList.put("dialog", this);
 
 		controlList = new LinkedHashMap<String,Object>();
-
-		controlList.put("txtProducentStation",txtProducentStation);
-		controlList.put("txtCustomerStation",txtCustomerStation);
-		controlList.put("txtDistance",txtDistance);
-		controlList.put("",);
-		controlList.put("",);
-		controlList.put("",);
-		controlList.put("",);
-
-
+		controlList.put("lblForwarderCompanyName",txtProducentStation);
+		controlList.put("lblForwarderStreet",txtCustomerStation);
+		controlList.put("lblForwarderLandPostcode",txtDistance);
+		controlList.put("lblForwarderEmploee",txtRelationField1);
+		controlList.put("txtRelationField2",txtRelationField2);
+		controlList.put("txtRelationField3",txtRelationField3);
+		controlList.put("textRelationField4",textRelationField4);
+		controlList.put("textPaneForwarderNote",textRelationNotice);
+		controlList.put("lblCloseDialog",lblCloseDialog);
+		controlList.put("lblCloseDialog",lblCloseDialog);
+		controlList.put("lblSaveRelation",lblSaveRelation);
+		controlList.put("lblCancel",lblCancel);
 
 
 		// new AddForwarderService(controlList);
 
 
-	}
-
-	public void showDialog() {
-		setModal(true);
-		setVisible(true);
 	}
 }
 
