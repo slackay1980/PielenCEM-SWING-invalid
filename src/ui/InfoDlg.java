@@ -20,6 +20,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JSeparator;
 import javax.swing.JPasswordField;
 import javax.swing.JTextPane;
+import javax.swing.border.LineBorder;
 
 public class InfoDlg extends JDialog {
 
@@ -39,17 +40,18 @@ public class InfoDlg extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
 
 
-		
-		
+
+
+
 		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.setBackground(new Color(128, 0, 0));
 		panel.setBounds(0, 0, 477, 56);
 		contentPanel.add(panel);
 		panel.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel(" X ");
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -63,20 +65,20 @@ public class InfoDlg extends JDialog {
 		lblNewLabel.setBounds(425, 6, 35, 44);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel.add(lblNewLabel);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(112, 128, 144));
 		panel_1.setBounds(0, 56, 477, 320);
 		contentPanel.add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		JLabel lblLogin = new JLabel("  !!!  ");
 		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogin.setForeground(Color.WHITE);
 		lblLogin.setFont(new Font("Lucida Grande", Font.PLAIN, 71));
 		lblLogin.setBounds(159, 6, 168, 91);
 		panel_1.add(lblLogin);
-		
+
 		JLabel lblAnmelden = new JLabel(" OK ");
 		lblAnmelden.addMouseListener(new MouseAdapter() {
 			@Override
@@ -98,7 +100,7 @@ public class InfoDlg extends JDialog {
 		lblAnmelden.setFont(new Font("Avenir", Font.BOLD, 20));
 		lblAnmelden.setBounds(189, 259, 115, 44);
 		panel_1.add(lblAnmelden);
-		
+
 		textPane = new JTextPane();
 		StyledDocument doc = textPane.getStyledDocument();
 		SimpleAttributeSet center = new SimpleAttributeSet();
@@ -115,7 +117,7 @@ public class InfoDlg extends JDialog {
 		}else {
 			textPane.setForeground(Color.green);
 		}
-		
-		
+
+
 	}
 }

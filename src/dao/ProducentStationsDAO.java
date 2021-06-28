@@ -35,6 +35,15 @@ public class ProducentStationsDAO {
 		
 		return producenttationsLikeString;
 	}
+
+	public ProducentStation getStationById(int producentStationId) {
+
+		Session session = util.HibernateUtil.getSessionFactory().openSession();
+
+		ProducentStation producentStation = (ProducentStation) session.get(ProducentStation.class, producentStationId);
+
+		return producentStation;
+	}
 	
 
 }

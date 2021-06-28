@@ -1,5 +1,8 @@
 package ui;
 
+import services.AddForwarderService;
+import services.AddRelationService;
+
 import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -33,6 +36,10 @@ public class AddRelationDlg extends JDialog {
 	private JTextField txtRelationField2;
 	private JTextField txtRelationField3;
 	private JTextField textRelationField4;
+	private JCheckBox chckBoxCustom;
+
+	private JLabel lblSearchProducentStation;
+	private JLabel lblSearchCustomerStation;
 
 
 
@@ -227,7 +234,7 @@ public class AddRelationDlg extends JDialog {
 		controlList.put("lblSpeichern",lblSaveRelation);
 		controlList.put("lblCancel",lblCancel);
 
-		JLabel lblSearchProducentStation = new JLabel(" Suchen");
+		lblSearchProducentStation = new JLabel(" Suchen");
 		lblSearchProducentStation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSearchProducentStation.setForeground(Color.WHITE);
 		lblSearchProducentStation.setFont(new Font("Lucida Grande", Font.BOLD, 16));
@@ -235,7 +242,7 @@ public class AddRelationDlg extends JDialog {
 		lblSearchProducentStation.setBounds(526, 72, 111, 26);
 		contentPanel.add(lblSearchProducentStation);
 
-		JLabel lblSearchCustomerStation = new JLabel(" Suchen");
+		lblSearchCustomerStation = new JLabel(" Suchen");
 		lblSearchCustomerStation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSearchCustomerStation.setForeground(Color.WHITE);
 		lblSearchCustomerStation.setFont(new Font("Lucida Grande", Font.BOLD, 16));
@@ -243,7 +250,7 @@ public class AddRelationDlg extends JDialog {
 		lblSearchCustomerStation.setBounds(526, 143, 111, 26);
 		contentPanel.add(lblSearchCustomerStation);
 
-		JCheckBox chckBoxCustom = new JCheckBox("     JA/ NEIN");
+		chckBoxCustom = new JCheckBox("     JA/ NEIN");
 		chckBoxCustom.setForeground(new Color(255, 255, 255));
 		chckBoxCustom.setBounds(47, 347, 128, 23);
 		contentPanel.add(chckBoxCustom);
@@ -301,23 +308,31 @@ public class AddRelationDlg extends JDialog {
 		controlList.put("dialog", this);
 
 		controlList = new LinkedHashMap<String,Object>();
-		controlList.put("lblForwarderCompanyName",txtProducentStation);
-		controlList.put("lblForwarderStreet",txtCustomerStation);
-		controlList.put("lblForwarderLandPostcode",txtDistance);
-		controlList.put("lblForwarderEmploee",txtRelationField1);
+		controlList.put("txtProducentStation",txtProducentStation);
+		controlList.put("txtCustomerStation",txtCustomerStation);
+		controlList.put("txtDistance",txtDistance);
+		controlList.put("txtRelationField1",txtRelationField1);
 		controlList.put("txtRelationField2",txtRelationField2);
 		controlList.put("txtRelationField3",txtRelationField3);
 		controlList.put("textRelationField4",textRelationField4);
-		controlList.put("textPaneForwarderNote",textRelationNotice);
-		controlList.put("lblCloseDialog",lblCloseDialog);
+		controlList.put("textRelationNotice",textRelationNotice);
 		controlList.put("lblCloseDialog",lblCloseDialog);
 		controlList.put("lblSaveRelation",lblSaveRelation);
 		controlList.put("lblCancel",lblCancel);
+		controlList.put("chckBoxCustom",chckBoxCustom);
+		controlList.put("lblSearchProducentStation",lblSearchProducentStation);
+		controlList.put("lblSearchCustomerStation",lblSearchCustomerStation);
+		controlList.put("dialog",this);
 
 
-		new AddForwarderService(controlList);
+		new AddRelationService(controlList);
 
 
+	}
+
+	public void showDialog() {
+		setModal(true);
+		setVisible(true);
 	}
 }
 

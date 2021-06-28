@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import entyties.Customer;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -50,6 +51,15 @@ public class CustomerStationDAO {
 		List<CustomerStation> customerStationsLikeString = (List<CustomerStation>) query.list();
 		
 	return customerStationsLikeString;
+	}
+
+	public CustomerStation getStationById(int customerStationId) {
+
+		Session session = util.HibernateUtil.getSessionFactory().openSession();
+
+		CustomerStation customerStation = (CustomerStation) session.get(CustomerStation.class, customerStationId);
+
+		return customerStation;
 	}
 	
 

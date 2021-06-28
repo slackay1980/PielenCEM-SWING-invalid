@@ -37,8 +37,14 @@ public class Relation {
     @Column(name = "DISTANCE")
     private int distance;
 
+    @Column(name = "CUSTOM")
+    private boolean ifCustom;
+
+
     public Relation() {
     }
+
+
 
     public Relation(CustomerStation customerStation, ProducentStation producentStation, String relationName, int distance) {
         this.customerStation = customerStation;
@@ -87,6 +93,13 @@ public class Relation {
         this.customerStation = customerStation;
     }
 
+    public boolean isIfCustom() {
+        return ifCustom;
+    }
+
+    public void setIfCustom(boolean ifCustom) {
+        this.ifCustom = ifCustom;
+    }
 
 
 }
