@@ -37,6 +37,7 @@ public class AddRelationService {
     private CustomerStation customerStation = null;
     private ProducentStation producentStation = null;
     private Relation relation = null;
+    private RelationDAO relationDAO;
     private boolean saved;
 
     public AddRelationService(LinkedHashMap<String,Object> controlList) {
@@ -56,6 +57,8 @@ public class AddRelationService {
         this.lblSearchCustomerStation = (JLabel) controlList.get("lblSearchCustomerStation");
         this.dialog = (JDialog)controlList.get("dialog");
 
+        this.relationDAO = new RelationDAO();
+
         setListener();
 
     }
@@ -68,6 +71,7 @@ public class AddRelationService {
                     PullDownCustomerStationDlg pullDownCustomerStations = new PullDownCustomerStationDlg(txtCustomerStation);
                     customerStation = pullDownCustomerStations.showDialog();
                     txtCustomerStation.setText(customerStation.getStationName() +", "+customerStation.getStationCity());
+                    checkRelationIfExist();
                 }
             }
 
@@ -80,6 +84,7 @@ public class AddRelationService {
                     PullDownCustomerStationDlg pullDownCustomerStations = new PullDownCustomerStationDlg(txtCustomerStation);
                     customerStation = pullDownCustomerStations.showDialog();
                     txtCustomerStation.setText(customerStation.getStationName() +", "+customerStation.getStationCity());
+                    checkRelationIfExist();
                 }
             }
 
@@ -92,6 +97,8 @@ public class AddRelationService {
                     PullDownProducentStationList producentStationList = new PullDownProducentStationList(txtProducentStation);
                     producentStation = producentStationList.showDialog();
                     txtProducentStation.setText(producentStation.getStationName()+", "+producentStation.getStationCity());
+                    checkRelationIfExist();
+
                 }
             }
 
@@ -103,6 +110,10 @@ public class AddRelationService {
                 if (e.getKeyCode()==10) {
                     PullDownProducentStationList producentStationList = new PullDownProducentStationList(txtProducentStation);
                     producentStation = producentStationList.showDialog();
+                    txtProducentStation.setText(producentStation.getStationName()+", "+producentStation.getStationCity());
+                    checkRelationIfExist();
+
+
                 }
             }
 
@@ -181,7 +192,7 @@ public class AddRelationService {
         if (checkFieldsIfFilled()) {
             relation = new Relation();
             setFields(relation);
-            RelationDAO relationDAO = new RelationDAO();
+
             try {
                 if (relationDAO.ifRelationExist(customerStation,producentStation)==true) {
                     InfoDlg infoDlg = new InfoDlg(true,
@@ -212,6 +223,32 @@ public class AddRelationService {
             infoDlg.setVisible(true);
         }
 
+    }
+
+    private boolean checkRelationsIfExistHelper() throws Exception {
+        boolean answer = false;
+        if ((customerStation!=null) & (producentStation!=null)) {
+            answer = relationDAO.ifRelationExist(customerStation,producentStation);
+        }
+        return answer;
+
+    }
+
+    private void checkRelationIfExist() {
+        try {
+            if (checkRelationsIfExistHelper()==true) {
+                producentStation = null;
+                customerStation = null;
+                txtProducentStation.setText("");
+                txtCustomerStation.setText("");
+                new InfoDlg(true, "Die Relation existiert bereits", dialog.getLocation()).showDlg();
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            new InfoDlg(true, "Kann keine Daten aus Datenbank lesen", dialog.getLocation()).showDlg();
+
+        }
     }
 
 

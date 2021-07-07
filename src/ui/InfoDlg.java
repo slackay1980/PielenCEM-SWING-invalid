@@ -120,4 +120,9 @@ public class InfoDlg extends JDialog {
 
 
 	}
+
+	public void showDlg( ) {
+		setModal(true);
+		setVisible(true);
+	}
 }

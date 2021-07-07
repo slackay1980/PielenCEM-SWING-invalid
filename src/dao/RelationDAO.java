@@ -37,7 +37,9 @@ public class RelationDAO {
         query.setParameter("customerStation", customerStation);
         query.setParameter("producentStation", producentStation);
 
-        List<Relation> relations = query.list();
+        List<Relation> relations;
+
+        relations = (List<Relation>) query.list();
 
 
         if (relations.size() == 0) {
