@@ -18,21 +18,24 @@
         <property name = "hibernate.connection.url">
             <!-- jdbc:mysql://127.0.0.1:3306/dispatcher?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC  -->
         	<!--jdbc:mysql://db4free.net:3306/pielen_cem_exp -->
-            jdbc:mysql://85.214.165.187:3306/pielencem?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC
-        </property>
+            <!--jdbc:mysql://85.214.165.187:3306/pielencem?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC-->
+        jdbc:mysql://localhost:3306/pielencem?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC
+</property>
 
-        <property name = "hibernate.connection.username">
-            factura_user
-        </property>
+<property name = "hibernate.connection.username">
+    <!--factura_user-->
+    root
+</property>
 
 
-        <property name = "hibernate.connection.password">
-            Pielen32!
-        </property>
+<property name = "hibernate.connection.password">
+    <!--Pielen32!-->
+    lysy1980
+</property>
 
-        <!-- List of XML mapping files 
-        <mapping class="model.Student" />
-        <mapping class="model.Employee" />-->
+<!-- List of XML mapping files
+<mapping class="model.Student" />
+<mapping class="model.Employee" />-->
 
     </session-factory>
 </hibernate-configuration>

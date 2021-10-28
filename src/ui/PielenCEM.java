@@ -135,6 +135,7 @@ public class PielenCEM {
 		table.setShowVerticalLines(false);
 		table.setSelectionBackground(new  Color(206, 218, 237));
 		table.setRowHeight(25);
+		table.setGridColor(new Color(211, 211, 211));
 
 
 
