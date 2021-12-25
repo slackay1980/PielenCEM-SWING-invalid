@@ -141,9 +141,9 @@ public class MainControlService {
                 FreightPullDownList freightPullDownList = new FreightPullDownList(lblFreightManagement);
                 int i = freightPullDownList.showDialog();
                 switch (i) {
-                    case 0: new AddFreightDlg().showDialog();break;
-                    case 1: new AddFreightDlg().showDialog();break;
-                }
+                    case 0: new FreightDlg().showDialog();break;
+                    case 1: new FreightDlg().showDialog();break;
+              }
 
             }
 

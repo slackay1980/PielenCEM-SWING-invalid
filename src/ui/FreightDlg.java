@@ -1,4 +1,6 @@
 package ui;
+import services.FreightService;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -20,6 +22,7 @@ import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.SystemColor;
+import java.util.LinkedHashMap;
 
 public class FreightDlg extends JDialog {
 
@@ -27,30 +30,12 @@ public class FreightDlg extends JDialog {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTable table;
+	private LinkedHashMap<String,Object> controlList = null;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			FreightDlg dialog = new FreightDlg();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
-	/**
-	 * Create the dialog.
-	 */
-	/**
-	 * 
-	 */
-	/**
-	 * 
-	 */
+
 	public FreightDlg() {
+		controlList = new LinkedHashMap<String,Object>();
 		setUndecorated(true);
 		setBounds(100, 100, 747, 777);
 		getContentPane().setLayout(new BorderLayout());
@@ -68,7 +53,7 @@ public class FreightDlg extends JDialog {
 		textField.setBackground(new Color(255, 255, 255));
 		textField.setBounds(39, 121, 279, 45);
 		contentPanel.add(textField);
-		textField.setColumns(10);
+
 		
 		JLabel lblRelation = new JLabel("Relation");
 		lblRelation.setFont(new Font("PingFang TC", Font.PLAIN, 18));
@@ -79,6 +64,7 @@ public class FreightDlg extends JDialog {
 		textField_1.setColumns(10);
 		textField_1.setBounds(38, 252, 280, 45);
 		contentPanel.add(textField_1);
+
 		
 		JLabel lblNewLabel_1 = new JLabel("Spedition");
 		lblNewLabel_1.setForeground(Color.LIGHT_GRAY);
@@ -97,7 +83,9 @@ public class FreightDlg extends JDialog {
 		lblNewLabel_1_2.setFont(new Font("PingFang TC", Font.PLAIN, 18));
 		lblNewLabel_1_2.setBounds(415, 139, 182, 27);
 		contentPanel.add(lblNewLabel_1_2);
-		
+
+
+
 		JLabel lblNewLabel_1_3 = new JLabel("Ladewerk");
 		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1_3.setForeground(Color.LIGHT_GRAY);
@@ -118,6 +106,8 @@ public class FreightDlg extends JDialog {
 		lblNewLabel_1_2_1.setFont(new Font("PingFang TC", Font.PLAIN, 18));
 		lblNewLabel_1_2_1.setBounds(415, 271, 264, 27);
 		contentPanel.add(lblNewLabel_1_2_1);
+
+
 		
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.BLACK);
@@ -243,21 +233,45 @@ public class FreightDlg extends JDialog {
 		btnKnopf.setBounds(355, 696, 117, 29);
 		contentPanel.add(btnKnopf);
 	
-		{
+
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
+
 				JButton okButton = new JButton("Speichern");
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
-			}
-			{
+
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
-			}
-		}
+
+
+
+		controlList.put("textFieldSpedition",textField);
+		controlList.put("textFieldRelation",textField_1);
+		controlList.put("labelSpedName",lblNewLabel_1);
+		controlList.put("labelSpedStreet",lblNewLabel_1_1);
+		controlList.put("labelSpedCity",lblNewLabel_1_2);
+		controlList.put("labelProducent",lblNewLabel_1_3);
+		controlList.put("labelMinus",lblNewLabel_1_1_1);
+		controlList.put("labelCustomer",lblNewLabel_1_2_1);
+		controlList.put("table",table);
+		controlList.put("buttonOk",okButton);
+		controlList.put("buttonCancel",cancelButton);
+		controlList.put("buttonBut1",btnNewButton);
+		controlList.put("buttonBut2",btnNewButton_1);
+		controlList.put("buttonBut3",btnKnopf);
+
+
+		new FreightService(controlList);
+
+
+	}
+
+	public void showDialog() {
+		setModal(true);
+		setVisible(true);
 	}
 }

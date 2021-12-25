@@ -1,0 +1,23 @@
+sudo apt update
+sudo apt install mysql-server
+sudo mysql_secure_installation
+
+
+mysql db_name < text_file
+
+
+CREATE DATABASE  pielencem;
+
+USE pielencem
+
+CREATE USER 'factura_user1'@'localhost' IDENTIFIED BY 'Pielen32!';
+
+CREATE USER 'factura_user1'@'%' IDENTIFIED BY 'Pielen32!';
+
+
+
+GRANT ALL PRIVILEGES ON *.* TO 'factura_user1'@'%';
+
+GRANT ALL PRIVILEGES ON *.* TO 'factura_user1'@'localhost';
+
+
