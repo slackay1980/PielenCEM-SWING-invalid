@@ -154,8 +154,8 @@ public class MainControlService {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                RelationPullDownList relationPullDownList = new RelationPullDownList(lblRelationManagement);
-                int i = relationPullDownList.showDialog();
+                RelationOnMainWindowPullDownList relationOnMainWindowPullDownList = new RelationOnMainWindowPullDownList(lblRelationManagement);
+                int i = relationOnMainWindowPullDownList.showDialog();
                 switch (i) {
                     case 0: new AddRelationDlg().showDialog();break;
                     case 1: new AddRelationDlg().showDialog();break;

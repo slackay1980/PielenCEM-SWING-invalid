@@ -24,6 +24,18 @@ public class RelationDAO {
         session.close();
     }
 
+    public List<Relation> getRelationByString(String searchString) throws HibernateException, Exception {
+
+        Session session = util.HibernateUtil.getSessionFactory().openSession();
+
+        String querry = "FROM Relation as r WHERE r.relationName LIKE : searchString";
+
+        @SuppressWarnings("deprecation")
+        List<Relation> relationsLikeString = (List<Relation>) session.createQuery(querry, Relation.class).setString("searchString",searchString).list();
+
+        return relationsLikeString;
+    }
+
     public boolean ifRelationExist(CustomerStation customerStation, ProducentStation producentStation) throws HibernateException, Exception {
 
         boolean relationExist;

@@ -1,7 +1,9 @@
 package services;
 
 import entyties.Forwarder;
+import entyties.Relation;
 import ui.ForwarderPullDownDlg;
+import ui.RelationPullDownDlg;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -19,6 +21,7 @@ public class FreightService {
     private JButton buttonOk,buttonCancel,buttonBut1,buttonBut2,buttonBut3;
 
     private Forwarder forwarder;
+    private Relation relation;
 
     public FreightService(LinkedHashMap<String,Object> controlList) {
 
@@ -50,6 +53,17 @@ public class FreightService {
                 if (e.getKeyCode()==10) {
                     ForwarderPullDownDlg pullDown = new ForwarderPullDownDlg(textFieldSpedition);
                     forwarder = pullDown.showDialog();
+                }
+            }
+
+        });
+
+        textFieldRelation.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==10) {
+                    RelationPullDownDlg pullDown = new RelationPullDownDlg(textFieldRelation);
+                    relation = pullDown.showDialog();
                 }
             }
 
