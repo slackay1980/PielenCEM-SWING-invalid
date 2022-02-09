@@ -66,6 +66,7 @@ public class FreightService {
                 if (e.getKeyCode()==10) {
                     RelationPullDownDlg pullDown = new RelationPullDownDlg(textFieldRelation);
                     relation = pullDown.showDialog();
+                    setRelationOrWarning(relation);
 
                 }
             }
@@ -118,6 +119,28 @@ public class FreightService {
             textFieldRelation.setText("");
         }
     }
+
+    private void tableSynchronisateFromDatenbank() {
+
+
+
+
+        
+    }
+
+    private void tableSynchronisateToDatenbank() {
+
+
+
+
+    }
+
+    private void tableRender() {
+
+
+
+    }
+
 
 
 }

@@ -2,10 +2,8 @@ package check;
 
 import dao.CustomerDAO;
 import dao.CustomerStationDAO;
-import dao.ProducentStationsDAO;
-import entyties.CustomerStation;
-import entyties.ProducentStation;
-import entyties.User;
+import dao.ProducentDAO;
+import entyties.*;
 import org.hibernate.Session;
 import dao.RelationDAO;
 
@@ -15,8 +13,17 @@ public class Check {
 
         Session session = util.HibernateUtil.getSessionFactory().openSession();
 
-        CustomerStationDAO csDAO =  new CustomerStationDAO();
-        CustomerStation cs =  csDAO.getStationById(3);
+        Forwarder forwarder = new Forwarder();
+        forwarder.setForwarderName("Krug");
+        forwarder.setForwarderStreet("Ul. Lenina 34");
+        forwarder.setForwarderLandPostCode("D-36757");
+        forwarder.setForwarderCity("Hanover");
+
+
+        Producent producent = new ProducentDAO().getProducentById(1);
+        producent =
+
+        CustomerStation cs =  csDAaaO.getStationById(3);
 
         ProducentStationsDAO psDAO = new ProducentStationsDAO();
         ProducentStation ps = psDAO.getStationById(1);

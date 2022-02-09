@@ -25,7 +25,7 @@ public class RelationPullDownDlg  extends JDialog{
     private Point point;
     private JTable table;
     private List<Relation> relationLikeString = null;
-    private int relationIndex;
+    private int relationIndex = -1;
     private DefaultTableModel tableModel;
 
 
@@ -127,7 +127,7 @@ public class RelationPullDownDlg  extends JDialog{
         setModal(true);
         setAlwaysOnTop(true);
         setVisible(true);
-        if (relationLikeString!=null) {
+        if ((relationLikeString.size()!=0)&&(relationIndex!=-1)){
             return (Relation) relationLikeString.get(relationIndex);
         }
         else {

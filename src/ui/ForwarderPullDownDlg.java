@@ -24,7 +24,7 @@ public class ForwarderPullDownDlg  extends JDialog{
         private Point point;
         private JTable table;
         private List<Forwarder> forwardersLikeString = null;
-        private int forwarderIndex;
+        private int forwarderIndex =-1;
         // private String forwarderLikeString;
         private DefaultTableModel tableModel;
 
@@ -128,7 +128,7 @@ public class ForwarderPullDownDlg  extends JDialog{
             setModal(true);
             setAlwaysOnTop(true);
             setVisible(true);
-            if (forwardersLikeString!=null) {
+            if ((forwardersLikeString.size()!=0)&&(forwarderIndex!=-1)) {
                 return (Forwarder) forwardersLikeString.get(forwarderIndex);
             }
             else {

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import entyties.Producent;
+import org.hibernate.query.Query;
 
 public class ProducentDAO {
 
@@ -31,6 +32,13 @@ public class ProducentDAO {
 		List<Producent> producentsLikeString = (List<Producent>) session.createQuery(querry, Producent.class).setString("searchString",searchString).list();
 
 		return producentsLikeString;
-	}  
+	}
 
+	public Producent getProducentById(int id ) throws HibernateException, Exception {
+
+		Session session = util.HibernateUtil.getSessionFactory().openSession();
+		Producent producent =  (Producent) session.get(Producent.class, id);
+
+		return producent;
+	}
 }

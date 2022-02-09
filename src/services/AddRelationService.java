@@ -183,6 +183,13 @@ public class AddRelationService {
         relation.setCustomerStation(customerStation);
         relation.setProducentStation(producentStation);
 
+        if ((customerStation!=null)&(producentStation!=null)) {
+            String relationName = producentStation.getStationName()+" ,"+producentStation.getStationCity()
+                    + "-"+customerStation.getStationCity() + "("+
+                    customerStation.getStationName()+")";
+            relation.setRelationName(relationName);
+        }
+
         return true;
 
     }
