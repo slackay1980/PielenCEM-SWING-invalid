@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import entyties.Producent;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -34,6 +35,14 @@ public class CustomerDAO {
 		List<Customer> customersLikeString = (List<Customer>) session.createQuery(querry, Customer.class).setString("searchString",searchString).list();
 
 		return customersLikeString;
-	}  
+	}
+
+	public Customer getCustomerById(int id ) throws HibernateException, Exception {
+
+		Session session = util.HibernateUtil.getSessionFactory().openSession();
+		Customer customer =  (Customer) session.get(Customer.class, id);
+
+		return customer;
+	}
 
 }

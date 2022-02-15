@@ -30,4 +30,13 @@ public class ForwarderDAO {
         return forwardersLikeString;
     }
 
+    public Forwarder getForwarderById(int forwarderId) {
+
+        Session session = util.HibernateUtil.getSessionFactory().openSession();
+
+        Forwarder forwarder = (Forwarder) session.get(Forwarder.class, forwarderId);
+
+        return forwarder;
+    }
+
 }

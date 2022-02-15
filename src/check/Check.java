@@ -1,11 +1,9 @@
 package check;
 
-import dao.CustomerDAO;
-import dao.CustomerStationDAO;
-import dao.ProducentDAO;
+import dao.*;
 import entyties.*;
 import org.hibernate.Session;
-import dao.RelationDAO;
+import org.hibernate.persister.walking.internal.StandardAnyTypeDefinition;
 
 public class Check {
 
@@ -21,17 +19,38 @@ public class Check {
 
 
         Producent producent = new ProducentDAO().getProducentById(1);
-        producent =
+        ProducentStation producentStation = producent.getProducentStations().get(1);
 
-        CustomerStation cs =  csDAaaO.getStationById(3);
+        Customer customer = new CustomerDAO().getCustomerById(1);
+        CustomerStation customerStation = customer.getCustomerStations().get(0);
 
-        ProducentStationsDAO psDAO = new ProducentStationsDAO();
-        ProducentStation ps = psDAO.getStationById(1);
 
+        Relation relation = new Relation();
         RelationDAO relationDAO = new RelationDAO();
 
-        boolean ifExist = relationDAO.ifRelationExist(cs,ps);
+        boolean ifExist = relationDAO.ifRelationExist(customerStation,producentStation);
+        if (ifExist) {
+            relation = relationDAO.getRelationByPsCs(producentStation,customerStation);
+        }
 
+        System.out.println("Ladestelle = " + producentStation.getStationName() + ", "+producentStation.getStationCity());
+        System.out.println("Entladestelle = " + customerStation.getStationName() + ", "+customerStation.getStationCity());
         System.out.println("Relation exist = " + ifExist);
+
+
+        Forwarder forwarder1 = new ForwarderDAO().getForwarderById(1);
+
+        Freight freight = new Freight();
+
+
+        freight.setForwarder(forwarder1);
+        freight.setRelation(relation);
+        freight.setFreigtPerTo(1250);
+
+
+        new FreigtDAO().saveNewFreigt(freight);
+
+
+
     }
 }

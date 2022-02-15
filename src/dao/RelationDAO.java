@@ -65,4 +65,24 @@ public class RelationDAO {
         return relationExist;
 
     }
+
+    public Relation getRelationByPsCs(ProducentStation ps, CustomerStation cs) {
+
+        Session session = util.HibernateUtil.getSessionFactory().openSession();
+
+        String querryStr = "FROM Relation as rel WHERE rel.customerStation =  :customerStation AND  rel.producentStation = :producentStation";
+
+        Query query = session.createQuery(querryStr, Relation.class);
+
+        query.setParameter("customerStation", cs);
+        query.setParameter("producentStation", ps);
+
+        List<Relation> relations;
+
+        relations = (List<Relation>) query.list();
+
+        return (Relation) relations.get(0);
+
+
+    }
 }
